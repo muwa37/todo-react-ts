@@ -1,6 +1,5 @@
-interface IInputProps {
-    placeholder:string
-}
+import { IInputProps } from '../../types/types'
+
 
 export const Input:React.FC<IInputProps> = ({placeholder}:IInputProps) => {
     return(

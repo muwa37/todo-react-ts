@@ -1,17 +1,25 @@
+import { ITodoListProps } from '../types/types';
 import { TodoFilter } from './TodoFilter';
 import { TodoInput } from './TodoInput';
 import { TodoItem } from './TodoItem';
 
-export const TodoList: React.FC = () => {
+
+
+export const TodoList: React.FC<ITodoListProps> = ({title, tasks}:ITodoListProps) => {
   return (
     <div>
-        <h3>todo list name</h3>
+        <h3>{title}</h3>
         
         <TodoInput/>
       <ul>
-        <TodoItem/>
-        <TodoItem/>
-        <TodoItem/>
+        {tasks.map(task => 
+            <TodoItem
+                key={task.id}
+                id={task.id}
+                title={task.title}
+                isDone={task.isDone}
+            />
+        )}
       </ul>
         <TodoFilter/>
     </div>

@@ -1,7 +1,5 @@
-interface IButtonProps {
-    text: string
-    onClick?: () => void;
-}
+import { IButtonProps } from '../../types/types'
+
 
 export const Button:React.FC<IButtonProps> = ({text, onClick}:IButtonProps) => {
     return(
