@@ -1,7 +1,6 @@
-import { ITodoItem } from '../types/types';
+import { ITodoItem } from "../types/types";
 
-
-export const TodoItem: React.FC<ITodoItem> = ({title, isDone}:ITodoItem) => {
+export const TodoItem: React.FC<ITodoItem> = ({ title, isDone }: ITodoItem) => {
   return (
     <li>
       <input type="checkbox" checked={isDone} />
