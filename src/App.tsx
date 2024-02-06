@@ -1,7 +1,10 @@
-import './App.css';
+import React from "react";
+import { TodoList } from './components/TodoList';
 
-function App() {
-	return <div className='App'>hello world</div>;
-}
+export const App: React.FC = () => {
+  return <div className="App">app 
+	<TodoList/>
+  </div>;
+};
 
-export default App;
+
