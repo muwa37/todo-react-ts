@@ -1,5 +1,5 @@
-import { IInputProps } from "../../types/types";
+import { InputProps } from "../../types/types";
 
-export const Input: React.FC<IInputProps> = ({ placeholder }: IInputProps) => {
+export const Input: React.FC<InputProps> = ({ placeholder }: InputProps) => {
   return <input type="text" placeholder={placeholder} />;
 };

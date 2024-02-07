@@ -1,8 +1,8 @@
-import { IButtonProps } from "../../types/types";
+import { ButtonProps } from "../../types/types";
 
-export const Button: React.FC<IButtonProps> = ({
+export const Button: React.FC<ButtonProps> = ({
   text,
   onClick,
-}: IButtonProps) => {
+}: ButtonProps) => {
   return <button onClick={onClick}>{text}</button>;
 };

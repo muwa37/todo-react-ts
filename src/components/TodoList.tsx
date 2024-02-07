@@ -1,12 +1,14 @@
-import { ITodoListProps } from "../types/types";
+import { TodoListProps } from "../types/types";
 import { TodoFilter } from "./TodoFilter";
 import { TodoInput } from "./TodoInput";
 import { TodoItem } from "./TodoItem";
 
-export const TodoList: React.FC<ITodoListProps> = ({
+export const TodoList: React.FC<TodoListProps> = ({
   title,
   tasks,
-}: ITodoListProps) => {
+  removeTask,
+  changeFilter,
+}: TodoListProps) => {
   return (
     <div>
       <h3>{title}</h3>
@@ -19,10 +21,11 @@ export const TodoList: React.FC<ITodoListProps> = ({
             id={task.id}
             title={task.title}
             isDone={task.isDone}
+            removeTask={removeTask}
           />
         ))}
       </ul>
-      <TodoFilter />
+      <TodoFilter changeFilter={changeFilter} />
     </div>
   );
 };
