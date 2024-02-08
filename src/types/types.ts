@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, KeyboardEvent } from 'react';
 
 export type ButtonProps = {
 	text: string;
@@ -8,7 +8,8 @@ export type ButtonProps = {
 export type InputProps = {
 	placeholder: string;
 	value: string;
-	onChange?: (e: ChangeEvent) => void;
+	onChange?: ChangeEvent<HTMLInputElement>;
+	onKeyPress?: KeyboardEvent<HTMLInputElement>;
 };
 
 export type Task = {

@@ -4,6 +4,7 @@ export const Input: React.FC<InputProps> = ({
 	placeholder,
 	value,
 	onChange,
+	onKeyPress,
 }: InputProps) => {
 	return (
 		<input
@@ -11,6 +12,7 @@ export const Input: React.FC<InputProps> = ({
 			placeholder={placeholder}
 			value={value}
 			onChange={onChange}
+			onKeyPress={onKeyPress}
 		/>
 	);
 };
