@@ -8,8 +8,8 @@ export type ButtonProps = {
 export type InputProps = {
 	placeholder: string;
 	value: string;
-	onChange?: ChangeEvent<HTMLInputElement>;
-	onKeyPress?: KeyboardEvent<HTMLInputElement>;
+	onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+	onKeyPress?: (e: KeyboardEvent<HTMLInputElement>) => void;
 };
 
 export type Task = {
