@@ -8,6 +8,8 @@ export const TodoInput: React.FC<TodoInputProps> = ({
 }: TodoInputProps) => {
 	const [newTaskTitle, setNewTaskTitle] = useState('');
 
+	//TODO: separate handlers
+
 	const onChangeHadler = (e: ChangeEvent<HTMLInputElement>) => {
 		setNewTaskTitle(e.currentTarget.value);
 	};
@@ -22,7 +24,7 @@ export const TodoInput: React.FC<TodoInputProps> = ({
 		setNewTaskTitle('');
 	};
 
-	//debounce on change
+	//TODO: debounce on change
 	return (
 		<div>
 			<Input
