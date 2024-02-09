@@ -24,6 +24,8 @@ export type TodoListProps = {
 	removeTask: (id: string) => void;
 	changeFilter: (value: FilterValues) => void;
 	addTask: (title: string) => void;
+	changeTaskStatus:(id:string, status: boolean) => void;
+	currentFilter:FilterValues;
 };
 
 export type TodoItemProps = {
@@ -31,10 +33,12 @@ export type TodoItemProps = {
 	title: string;
 	isDone: boolean;
 	removeTask: (id: string) => void;
+	changeTaskStatus:(id:string, status: boolean) => void;
 };
 
 export type TodoFilterProps = {
 	changeFilter: (value: FilterValues) => void;
+	currentFilter:FilterValues;
 };
 
 export type FilterValues = 'all' | 'completed' | 'active';

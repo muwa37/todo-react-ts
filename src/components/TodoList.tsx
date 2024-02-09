@@ -9,6 +9,8 @@ export const TodoList: React.FC<TodoListProps> = ({
 	removeTask,
 	changeFilter,
 	addTask,
+	changeTaskStatus,
+	currentFilter
 }: TodoListProps) => {
 	return (
 		<div>
@@ -23,10 +25,11 @@ export const TodoList: React.FC<TodoListProps> = ({
 						title={task.title}
 						isDone={task.isDone}
 						removeTask={removeTask}
+						changeTaskStatus={changeTaskStatus}
 					/>
 				))}
 			</ul>
-			<TodoFilter changeFilter={changeFilter} />
+			<TodoFilter changeFilter={changeFilter} currentFilter={currentFilter}/>
 		</div>
 	);
 };

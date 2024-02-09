@@ -21,6 +21,16 @@ export const App: React.FC = () => {
 			isDone: true,
 		},
 	]);
+	const [filter, setFilter] = useState<FilterValues>('all');
+
+  const changeTaskStatus = (id: string, status: boolean) => {
+    let task = tasks.find((t) => t.id === id);
+    if (task) {
+      task.isDone = status;
+    }
+    removeTask(id);
+    setTasks([...tasks]);
+  }
 
 	const addTask = (title: string) => {
 		const newTask = {
@@ -31,7 +41,6 @@ export const App: React.FC = () => {
 		setTasks([newTask, ...tasks]);
 	};
 
-	const [filter, setFilter] = useState<FilterValues>('all');
 
 	const changeFilter = (value: FilterValues) => {
 		setFilter(value);
@@ -59,6 +68,8 @@ export const App: React.FC = () => {
 				removeTask={removeTask}
 				changeFilter={changeFilter}
 				addTask={addTask}
+        changeTaskStatus={changeTaskStatus}
+        currentFilter={filter}
 			/>
 		</div>
 	);
