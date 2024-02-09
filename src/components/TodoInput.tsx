@@ -5,17 +5,18 @@ import { Input } from './ui/Input';
 
 export const TodoInput: React.FC<TodoInputProps> = ({
 	addTask,
+	todoListId,
 }: TodoInputProps) => {
 	const [newTaskTitle, setNewTaskTitle] = useState('');
 	const [taskTitleError, setTaskTitleError] = useState<string | null>(null);
-	const addValidatedTask = (id: string) => {
+	const addValidatedTask = () => {
 		if (newTaskTitle.trim() === '') {
-			setTaskTitleError('task name required')
-			return
+			setTaskTitleError('task name required');
+			return;
 		}
-		addTask(newTaskTitle);
+		addTask(newTaskTitle, todoListId);
 		setNewTaskTitle('');
-	}
+	};
 
 	//TODO: separate handlers
 
@@ -25,12 +26,12 @@ export const TodoInput: React.FC<TodoInputProps> = ({
 	const onEnterPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
 		setTaskTitleError(null);
 		if (e.key === 'Enter') {
-			addValidatedTask(newTaskTitle);
+			addValidatedTask();
 			setNewTaskTitle('');
 		}
 	};
 	const onCliclHandler = () => {
-		addValidatedTask(newTaskTitle);
+		addValidatedTask();
 		setNewTaskTitle('');
 	};
 
@@ -46,7 +47,7 @@ export const TodoInput: React.FC<TodoInputProps> = ({
 				/>
 				<Button text='add' onClick={onCliclHandler} />
 			</div>
-			{taskTitleError && <div>{taskTitleError}</div> }
+			{taskTitleError && <div>{taskTitleError}</div>}
 		</div>
 	);
 };

@@ -3,30 +3,25 @@ import { Button } from './ui/Button';
 
 export const TodoFilter: React.FC<TodoFilterProps> = ({
 	id,
+	todoListId,
 	changeFilter,
-	currentFilter
 }: TodoFilterProps) => {
 	const onAllClickHandler = () => {
-		changeFilter('all', id);
+		changeFilter('all', id, todoListId);
 	};
 	const onActiveClickHandler = () => {
-		changeFilter('active', id);
+		changeFilter('active', id, todoListId);
 	};
 	const onCompletedClickHandler = () => {
-		changeFilter('completed', id);
+		changeFilter('completed', id, todoListId);
 	};
 
 	//TODO: style for active btn
 	return (
 		<div>
-			<span>task filter: {currentFilter}</span>
-			<div>
-				
-				
-				<Button text='all' onClick={onAllClickHandler} />
-				<Button text='active' onClick={onActiveClickHandler} />
-				<Button text='completed' onClick={onCompletedClickHandler} />
-			</div>
+			<Button text='all' onClick={onAllClickHandler} />
+			<Button text='active' onClick={onActiveClickHandler} />
+			<Button text='completed' onClick={onCompletedClickHandler} />
 		</div>
 	);
 };

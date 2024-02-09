@@ -5,22 +5,23 @@ import { TodoItem } from './TodoItem';
 
 export const TodoList: React.FC<TodoListProps> = ({
 	id,
+	todoListId,
 	title,
 	tasks,
 	removeTask,
 	changeFilter,
 	addTask,
 	changeTaskStatus,
-	currentFilter
 }: TodoListProps) => {
 	return (
 		<div>
 			<h3>{title}</h3>
 
-			<TodoInput addTask={addTask} />
+			<TodoInput todoListId={todoListId} addTask={addTask} />
 			<ul>
 				{tasks.map(task => (
 					<TodoItem
+						todoListId={todoListId}
 						key={task.id}
 						id={task.id}
 						title={task.title}
@@ -30,7 +31,7 @@ export const TodoList: React.FC<TodoListProps> = ({
 					/>
 				))}
 			</ul>
-			<TodoFilter id={id} changeFilter={changeFilter} currentFilter={currentFilter}/>
+			<TodoFilter todoListId={todoListId} id={id} changeFilter={changeFilter} />
 		</div>
 	);
 };

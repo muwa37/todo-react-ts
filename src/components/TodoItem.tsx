@@ -4,17 +4,18 @@ import { Button } from './ui/Button';
 
 export const TodoItem: React.FC<TodoItemProps> = ({
 	id,
+	todoListId,
 	title,
 	isDone,
 	removeTask,
-	changeTaskStatus
+	changeTaskStatus,
 }: TodoItemProps) => {
 	const onRemoveClickHandler = () => {
-		removeTask(id);
+		removeTask(id, todoListId);
 	};
 	const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-		changeTaskStatus(id, e.currentTarget.checked)
-	}
+		changeTaskStatus(id, e.currentTarget.checked, todoListId);
+	};
 	return (
 		<li>
 			<input type='checkbox' onChange={onChangeHandler} checked={isDone} />
