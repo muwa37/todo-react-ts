@@ -4,6 +4,7 @@ import { TodoInput } from './TodoInput';
 import { TodoItem } from './TodoItem';
 
 export const TodoList: React.FC<TodoListProps> = ({
+	id,
 	title,
 	tasks,
 	removeTask,
@@ -29,7 +30,7 @@ export const TodoList: React.FC<TodoListProps> = ({
 					/>
 				))}
 			</ul>
-			<TodoFilter changeFilter={changeFilter} currentFilter={currentFilter}/>
+			<TodoFilter id={id} changeFilter={changeFilter} currentFilter={currentFilter}/>
 		</div>
 	);
 };

@@ -2,17 +2,18 @@ import { TodoFilterProps } from '../types/types';
 import { Button } from './ui/Button';
 
 export const TodoFilter: React.FC<TodoFilterProps> = ({
+	id,
 	changeFilter,
 	currentFilter
 }: TodoFilterProps) => {
 	const onAllClickHandler = () => {
-		changeFilter('all');
+		changeFilter('all', id);
 	};
 	const onActiveClickHandler = () => {
-		changeFilter('active');
+		changeFilter('active', id);
 	};
 	const onCompletedClickHandler = () => {
-		changeFilter('completed');
+		changeFilter('completed', id);
 	};
 
 	//TODO: style for active btn
