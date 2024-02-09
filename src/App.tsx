@@ -85,6 +85,13 @@ export const App: React.FC = () => {
 		setTasksObj({ ...tasksObj });
 	};
 
+	const removeTodoList = (todoListId: string) => {
+		const clearedTodoLists = todoLists.filter(tl => tl.id !== todoListId);
+		setTodoLists(clearedTodoLists);
+		delete tasksObj[todoListId];
+		setTasksObj({ ...tasksObj });
+	};
+
 	return (
 		<div className='App'>
 			app
@@ -95,6 +102,7 @@ export const App: React.FC = () => {
 				addTask={addTask}
 				changeFilter={changeFilter}
 				removeTask={removeTask}
+				removeTodoList={removeTodoList}
 			/>
 		</div>
 	);

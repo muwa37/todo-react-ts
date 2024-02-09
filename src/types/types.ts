@@ -29,6 +29,7 @@ export type TodoListProps = {
 	changeFilter: (value: FilterValues, id: string, todoListId: string) => void;
 	addTask: (title: string, todoListId: string) => void;
 	changeTaskStatus: (id: string, status: boolean, todoListId: string) => void;
+	removeTodoList: (todoListId: string) => void;
 };
 
 export type TodoItemProps = {
@@ -66,6 +67,7 @@ export type TodoListsProps = {
 	changeFilter: (value: FilterValues, id: string, todoListId: string) => void;
 	addTask: (title: string, todoListId: string) => void;
 	changeTaskStatus: (id: string, status: boolean, todoListId: string) => void;
+	removeTodoList: (todoListId: string) => void;
 };
 
 export type tasksObj = {
