@@ -2,8 +2,9 @@ import { TodoListProps } from '../types/types';
 import { TodoFilter } from './TodoFilter';
 import { AddItemForm } from './AddItemForm';
 import { TodoItem } from './TodoItem';
-import { Button } from './ui/Button';
 import { EditableSpan } from './EditableSpan';
+import { IconButton } from '@mui/material';
+import { Delete } from '@mui/icons-material';
 
 export const TodoList: React.FC<TodoListProps> = ({
 	id,
@@ -16,7 +17,8 @@ export const TodoList: React.FC<TodoListProps> = ({
 	changeTaskStatus,
 	removeTodoList,
 	changeTaskTitle,
-	changeTodoListTitle
+	changeTodoListTitle,
+	filter
 }: TodoListProps) => {
 	const removeHandler = () => {
 		removeTodoList(todoListId);
@@ -34,7 +36,9 @@ export const TodoList: React.FC<TodoListProps> = ({
 		<div>
 			<h3>
 				<EditableSpan title={title} changeTitle={changeTodoListTitleHandler}/>
-				<Button text='x' onClick={removeHandler}></Button>
+				<IconButton onClick={removeHandler}>
+					<Delete/>
+				</IconButton>
 			</h3>
 
 			<AddItemForm addItem={addTaskHandler} />
@@ -52,7 +56,7 @@ export const TodoList: React.FC<TodoListProps> = ({
 					/>
 				))}
 			</ul>
-			<TodoFilter todoListId={todoListId} id={id} changeFilter={changeFilter} />
+			<TodoFilter todoListId={todoListId} id={id} changeFilter={changeFilter} filter={filter}/>
 		</div>
 	);
 };

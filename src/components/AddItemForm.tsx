@@ -1,6 +1,6 @@
 import { ChangeEvent, KeyboardEvent, useState } from 'react';
 import { AddItemFormProps } from '../types/types';
-import { Button } from './ui/Button';
+import { Button } from '@mui/material'
 import { Input } from './ui/Input';
 
 export const AddItemForm: React.FC<AddItemFormProps> = ({
@@ -43,7 +43,7 @@ export const AddItemForm: React.FC<AddItemFormProps> = ({
 					onChange={onChangeHandler}
 					onKeyPress={onEnterPressHandler}
 				/>
-				<Button text='add' onClick={onClickHandler} />
+				<Button onClick={onClickHandler} variant='contained'  >+</Button>
 			</div>
 			{titleError && <div>{titleError}</div>}
 		</div>

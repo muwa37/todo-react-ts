@@ -1,7 +1,9 @@
 import { ChangeEvent } from 'react';
 import { TodoItemProps } from '../types/types';
 import { EditableSpan } from './EditableSpan';
-import { Button } from './ui/Button';
+import { IconButton } from '@mui/material';
+import { Delete } from '@mui/icons-material';
+
 
 export const TodoItem: React.FC<TodoItemProps> = ({
 	id,
@@ -25,7 +27,9 @@ export const TodoItem: React.FC<TodoItemProps> = ({
 		<li>
 			<input type='checkbox' onChange={onChangeHandler} checked={isDone} />
 			<EditableSpan changeTitle={onTitleChangeHandler} title={title}/>
-			<Button text='x' onClick={onRemoveClickHandler} />
+			<IconButton onClick={onRemoveClickHandler}>
+					<Delete/>
+			</IconButton>
 		</li>
 	);
 };

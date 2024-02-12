@@ -36,6 +36,7 @@ export const TodoLists: React.FC<TodoListsProps> = ({
 						removeTodoList={removeTodoList}
 						changeTaskTitle={changeTaskTitle}
 						changeTodoListTitle={changeTodoListTitle}
+						filter={tl.filter}
 					/>
 				);
 			})}
