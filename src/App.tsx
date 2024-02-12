@@ -102,6 +102,24 @@ export const App: React.FC = () => {
     setTodoLists([todoList, ...todoLists]);
     setTasksObj({ ...tasksObj, [todoList.id]: [] });
   };
+  
+  const changeTaskTitle = (id: string, title: string, todoListId: string) => {
+    const tasks = tasksObj[todoListId];
+    let task = tasks.find((t) => t.id === id);
+    if (task) {
+      task.title = title;
+      tasksObj[todoListId] = [...tasks];
+      setTasksObj({ ...tasksObj });
+    }
+  }
+
+  const changeTodoListTitle = (todoListId:string, title:string) => {
+    const todoList = todoLists.find(tl => tl.id === todoListId)
+    if(todoList) {
+      todoList.title = title;
+      setTodoLists([...todoLists])
+    }
+  }
 
   return (
     <div className="App">
@@ -115,6 +133,8 @@ export const App: React.FC = () => {
         changeFilter={changeFilter}
         removeTask={removeTask}
         removeTodoList={removeTodoList}
+        changeTaskTitle={changeTaskTitle}
+        changeTodoListTitle={changeTodoListTitle}
       />
     </div>
   );

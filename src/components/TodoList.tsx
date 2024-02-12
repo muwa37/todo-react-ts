@@ -3,6 +3,7 @@ import { TodoFilter } from './TodoFilter';
 import { AddItemForm } from './AddItemForm';
 import { TodoItem } from './TodoItem';
 import { Button } from './ui/Button';
+import { EditableSpan } from './EditableSpan';
 
 export const TodoList: React.FC<TodoListProps> = ({
 	id,
@@ -14,23 +15,29 @@ export const TodoList: React.FC<TodoListProps> = ({
 	addTask,
 	changeTaskStatus,
 	removeTodoList,
+	changeTaskTitle,
+	changeTodoListTitle
 }: TodoListProps) => {
 	const removeHandler = () => {
 		removeTodoList(todoListId);
 	};
 
-	const addTaskWrapper = (title:string) => {
+	const addTaskHandler = (title:string) => {
 		addTask(title, id);
+	}
+
+	const changeTodoListTitleHandler = (title:string) => {
+		changeTodoListTitle(todoListId, title)
 	}
 
 	return (
 		<div>
 			<h3>
-				{title}
+				<EditableSpan title={title} changeTitle={changeTodoListTitleHandler}/>
 				<Button text='x' onClick={removeHandler}></Button>
 			</h3>
 
-			<AddItemForm addItem={addTaskWrapper} />
+			<AddItemForm addItem={addTaskHandler} />
 			<ul>
 				{tasks.map(task => (
 					<TodoItem
@@ -41,6 +48,7 @@ export const TodoList: React.FC<TodoListProps> = ({
 						isDone={task.isDone}
 						removeTask={removeTask}
 						changeTaskStatus={changeTaskStatus}
+						changeTaskTitle={changeTaskTitle}
 					/>
 				))}
 			</ul>
