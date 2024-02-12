@@ -1,9 +1,8 @@
 import { ChangeEvent } from 'react';
 import { TodoItemProps } from '../types/types';
 import { EditableSpan } from './EditableSpan';
-import { IconButton } from '@mui/material';
-import { Delete } from '@mui/icons-material';
-
+import { Checkbox, IconButton } from '@mui/material';
+import {  Delete } from '@mui/icons-material';
 
 export const TodoItem: React.FC<TodoItemProps> = ({
 	id,
@@ -24,13 +23,13 @@ export const TodoItem: React.FC<TodoItemProps> = ({
 		changeTaskTitle(id, newTitle, todoListId)
 	}
 	return (
-		<li>
-			<input type='checkbox' onChange={onChangeHandler} checked={isDone} />
+		<div>
+			<Checkbox onChange={onChangeHandler} checked={isDone} color={'secondary'}/>
 			<EditableSpan changeTitle={onTitleChangeHandler} title={title}/>
 			<IconButton onClick={onRemoveClickHandler}>
 					<Delete/>
 			</IconButton>
-		</li>
+		</div>
 	);
 };
 

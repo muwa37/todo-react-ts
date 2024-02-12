@@ -3,7 +3,7 @@ import { TodoFilter } from './TodoFilter';
 import { AddItemForm } from './AddItemForm';
 import { TodoItem } from './TodoItem';
 import { EditableSpan } from './EditableSpan';
-import { IconButton } from '@mui/material';
+import { Grid, IconButton, Paper } from '@mui/material';
 import { Delete } from '@mui/icons-material';
 
 export const TodoList: React.FC<TodoListProps> = ({
@@ -33,7 +33,8 @@ export const TodoList: React.FC<TodoListProps> = ({
 	}
 
 	return (
-		<div>
+		<Grid item>
+			<Paper style={{padding: '10px'}}>
 			<h3>
 				<EditableSpan title={title} changeTitle={changeTodoListTitleHandler}/>
 				<IconButton onClick={removeHandler}>
@@ -42,7 +43,7 @@ export const TodoList: React.FC<TodoListProps> = ({
 			</h3>
 
 			<AddItemForm addItem={addTaskHandler} />
-			<ul>
+			<div>
 				{tasks.map(task => (
 					<TodoItem
 						todoListId={todoListId}
@@ -55,8 +56,9 @@ export const TodoList: React.FC<TodoListProps> = ({
 						changeTaskTitle={changeTaskTitle}
 					/>
 				))}
-			</ul>
+			</div>
 			<TodoFilter todoListId={todoListId} id={id} changeFilter={changeFilter} filter={filter}/>
-		</div>
+			</Paper>
+		</Grid>
 	);
 };

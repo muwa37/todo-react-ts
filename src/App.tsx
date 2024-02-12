@@ -1,6 +1,8 @@
+import { Container, Grid } from "@mui/material";
 import React, { useState } from "react";
 import { v1 } from "uuid";
 import { AddItemForm } from "./components/AddItemForm";
+import { ButtonAppBar } from "./components/ButtonAppBar";
 import { TodoLists } from "./components/TodoLists";
 import { FilterValues, TasksStateType, TodoListType } from "./types/types";
 
@@ -102,7 +104,7 @@ export const App: React.FC = () => {
     setTodoLists([todoList, ...todoLists]);
     setTasksObj({ ...tasksObj, [todoList.id]: [] });
   };
-  
+
   const changeTaskTitle = (id: string, title: string, todoListId: string) => {
     const tasks = tasksObj[todoListId];
     let task = tasks.find((t) => t.id === id);
@@ -111,31 +113,37 @@ export const App: React.FC = () => {
       tasksObj[todoListId] = [...tasks];
       setTasksObj({ ...tasksObj });
     }
-  }
+  };
 
-  const changeTodoListTitle = (todoListId:string, title:string) => {
-    const todoList = todoLists.find(tl => tl.id === todoListId)
-    if(todoList) {
+  const changeTodoListTitle = (todoListId: string, title: string) => {
+    const todoList = todoLists.find((tl) => tl.id === todoListId);
+    if (todoList) {
       todoList.title = title;
-      setTodoLists([...todoLists])
+      setTodoLists([...todoLists]);
     }
-  }
+  };
 
   return (
     <div className="App">
-      app
-      <AddItemForm addItem={addTodoList} />
-      <TodoLists
-        tasks={tasksObj}
-        todoLists={todoLists}
-        changeTaskStatus={changeTaskStatus}
-        addTask={addTask}
-        changeFilter={changeFilter}
-        removeTask={removeTask}
-        removeTodoList={removeTodoList}
-        changeTaskTitle={changeTaskTitle}
-        changeTodoListTitle={changeTodoListTitle}
-      />
+      <ButtonAppBar />
+      <Container>
+        <Grid container style={{padding: '20px'}}>
+          <AddItemForm addItem={addTodoList} />
+        </Grid>
+        
+          <TodoLists
+            tasks={tasksObj}
+            todoLists={todoLists}
+            changeTaskStatus={changeTaskStatus}
+            addTask={addTask}
+            changeFilter={changeFilter}
+            removeTask={removeTask}
+            removeTodoList={removeTodoList}
+            changeTaskTitle={changeTaskTitle}
+            changeTodoListTitle={changeTodoListTitle}
+          />
+        
+      </Container>
     </div>
   );
 };

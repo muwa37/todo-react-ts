@@ -1,3 +1,4 @@
+import { Grid } from '@mui/material';
 import { TodoListsProps } from '../types/types';
 import { TodoList } from './TodoList';
 
@@ -13,7 +14,7 @@ export const TodoLists: React.FC<TodoListsProps> = ({
 	changeTodoListTitle
 }: TodoListsProps) => {
 	return (
-		<div>
+		<Grid container spacing={5}>
 			{todoLists.map(tl => {
 				let filteredTasks = tasks[tl.id];
 				if (tl.filter === 'active') {
@@ -23,6 +24,7 @@ export const TodoLists: React.FC<TodoListsProps> = ({
 					filteredTasks = filteredTasks.filter(t => t.isDone === true);
 				}
 				return (
+					
 					<TodoList
 						todoListId={tl.id}
 						key={tl.id}
@@ -38,8 +40,9 @@ export const TodoLists: React.FC<TodoListsProps> = ({
 						changeTodoListTitle={changeTodoListTitle}
 						filter={tl.filter}
 					/>
+				
 				);
 			})}
-		</div>
+		</Grid>
 	);
 };

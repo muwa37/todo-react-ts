@@ -2,19 +2,6 @@ import { ChangeEvent, KeyboardEvent, FocusEvent } from 'react';
 
 //TODO: Types refactoring
 
-export type ButtonProps = {
-	text: string;
-	onClick?: () => void;
-};
-
-export type InputProps = {
-	value: string;
-	onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-	onKeyPress?: (e: KeyboardEvent<HTMLInputElement>) => void;
-  onBlur?:(e: FocusEvent<HTMLInputElement>) => void;
-  autoFocus?: boolean;
-};
-
 export type Task = {
 	id: string;
 	title: string;
