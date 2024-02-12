@@ -1,6 +1,6 @@
 import { TodoListProps } from '../types/types';
 import { TodoFilter } from './TodoFilter';
-import { TodoInput } from './TodoInput';
+import { AddItemForm } from './AddItemForm';
 import { TodoItem } from './TodoItem';
 import { Button } from './ui/Button';
 
@@ -18,6 +18,11 @@ export const TodoList: React.FC<TodoListProps> = ({
 	const removeHandler = () => {
 		removeTodoList(todoListId);
 	};
+
+	const addTaskWrapper = (title:string) => {
+		addTask(title, id);
+	}
+
 	return (
 		<div>
 			<h3>
@@ -25,7 +30,7 @@ export const TodoList: React.FC<TodoListProps> = ({
 				<Button text='x' onClick={removeHandler}></Button>
 			</h3>
 
-			<TodoInput todoListId={todoListId} addTask={addTask} />
+			<AddItemForm addItem={addTaskWrapper} />
 			<ul>
 				{tasks.map(task => (
 					<TodoItem

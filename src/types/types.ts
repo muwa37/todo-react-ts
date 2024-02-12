@@ -1,4 +1,4 @@
-import { ChangeEvent, KeyboardEvent } from 'react';
+import { ChangeEvent, KeyboardEvent, FocusEvent } from 'react';
 
 //TODO: Types refactoring
 
@@ -8,10 +8,11 @@ export type ButtonProps = {
 };
 
 export type InputProps = {
-	placeholder: string;
 	value: string;
 	onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 	onKeyPress?: (e: KeyboardEvent<HTMLInputElement>) => void;
+  onBlur?:(e: FocusEvent<HTMLInputElement>) => void;
+  autoFocus?: boolean;
 };
 
 export type Task = {
@@ -39,6 +40,7 @@ export type TodoItemProps = {
 	isDone: boolean;
 	removeTask: (id: string, todoListId: string) => void;
 	changeTaskStatus: (id: string, status: boolean, todoListId: string) => void;
+  changeTaskTitle: (id: string, newTitle: string) => void;
 };
 
 export type TodoFilterProps = {
@@ -49,9 +51,8 @@ export type TodoFilterProps = {
 
 export type FilterValues = 'all' | 'completed' | 'active';
 
-export type TodoInputProps = {
-	todoListId: string;
-	addTask: (title: string, todoListId: string) => void;
+export type AddItemFormProps = {
+	addItem: (title: string) => void;
 };
 
 export type TodoListType = {
@@ -62,7 +63,7 @@ export type TodoListType = {
 
 export type TodoListsProps = {
 	todoLists: TodoListType[];
-	tasks: tasksObj;
+	tasks: TasksStateType;
 	removeTask: (id: string, todoListId: string) => void;
 	changeFilter: (value: FilterValues, id: string, todoListId: string) => void;
 	addTask: (title: string, todoListId: string) => void;
@@ -70,10 +71,11 @@ export type TodoListsProps = {
 	removeTodoList: (todoListId: string) => void;
 };
 
-export type tasksObj = {
-	[x: string]: {
-		id: string;
-		title: string;
-		isDone: boolean;
-	}[];
+export type TasksStateType = {
+	[key: string]: Task[];
 };
+
+export type EditableSpanProps = {
+  title:string;
+  changeTitle: (newTitle: string) => void;
+}
