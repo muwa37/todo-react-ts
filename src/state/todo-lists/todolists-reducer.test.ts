@@ -2,10 +2,10 @@ import { todoListsReducer } from "./todolists-reducer";
 import { v1 } from "uuid";
 import { FilterValues, TodoList } from "../../types/types";
 import {
-  AddTodoListAC,
-  ChangeTodoListFilterAC,
-  ChangeTodoListTitleAC,
-  RemoveTodoListAC,
+  addTodoListAC,
+  changeTodoListFilterAC,
+  changeTodoListTitleAC,
+  removeTodoListAC,
 } from "./todolists-action-creators";
 
 test("correct todoList should be removed", () => {
@@ -17,7 +17,7 @@ test("correct todoList should be removed", () => {
     { id: todoListId2, title: "2nd todo list", filter: "all" },
   ];
 
-  const endState = todoListsReducer(startState, RemoveTodoListAC(todoListId1));
+  const endState = todoListsReducer(startState, removeTodoListAC(todoListId1));
   expect(endState.length).toBe(1);
   expect(endState[0].id).toBe(todoListId2);
 });
@@ -35,7 +35,7 @@ test("correct todoList should be added", () => {
 
   const endState = todoListsReducer(
     startState,
-    AddTodoListAC(newTodoListTitle)
+    addTodoListAC(newTodoListTitle)
   );
 
   expect(endState.length).toBe(3);
@@ -56,7 +56,7 @@ test("correct todoList should be able to change its name", () => {
 
   const endState = todoListsReducer(
     startState,
-    ChangeTodoListTitleAC(todoListId2, newTodoListTitle)
+    changeTodoListTitleAC(todoListId2, newTodoListTitle)
   );
 
   expect(endState[0].title).toBe("1st todo list");
@@ -76,7 +76,7 @@ test("correct filter of todoList should be changed", () => {
 
   const endState = todoListsReducer(
     startState,
-    ChangeTodoListFilterAC(todoListId2, newFilter)
+    changeTodoListFilterAC(todoListId2, newFilter)
   );
 
   expect(endState[0].filter).toBe("all");

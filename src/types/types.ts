@@ -54,7 +54,7 @@ export type TodoList = {
 
 export type TodoListsProps = {
   todoLists: TodoList[];
-  tasks: TasksStateType;
+  tasks: TasksState;
   removeTask: (id: string, todoListId: string) => void;
   changeFilter: (value: FilterValues, id: string, todoListId: string) => void;
   addTask: (title: string, todoListId: string) => void;
@@ -64,7 +64,7 @@ export type TodoListsProps = {
   changeTodoListTitle: (todoListId: string, title: string) => void;
 };
 
-export type TasksStateType = {
+export type TasksState = {
   [key: string]: Task[];
 };
 

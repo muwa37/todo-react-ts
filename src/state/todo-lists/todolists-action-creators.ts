@@ -6,15 +6,15 @@ import {
 } from "../../types/todolist-action-types";
 import { FilterValues } from "../../types/types";
 
-export const RemoveTodoListAC = (todoListId: string): RemoveTodoListAction => {
+export const removeTodoListAC = (todoListId: string): RemoveTodoListAction => {
   return { type: "REMOVE-TODOLIST", todoListId: todoListId };
 };
 
-export const AddTodoListAC = (title: string): AddTodoListAction => {
+export const addTodoListAC = (title: string): AddTodoListAction => {
   return { type: "ADD-TODOLIST", title: title };
 };
 
-export const ChangeTodoListTitleAC = (
+export const changeTodoListTitleAC = (
   todoListId: string,
   title: string
 ): ChangeTodoListTitleAction => {
@@ -25,7 +25,7 @@ export const ChangeTodoListTitleAC = (
   };
 };
 
-export const ChangeTodoListFilterAC = (
+export const changeTodoListFilterAC = (
   todoListId: string,
   filter: FilterValues
 ): ChangeTodoListFilterAction => {

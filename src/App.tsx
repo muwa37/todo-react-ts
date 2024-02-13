@@ -4,13 +4,13 @@ import { v1 } from "uuid";
 import { AddItemForm } from "./components/AddItemForm";
 import { ButtonAppBar } from "./components/ButtonAppBar";
 import { TodoLists } from "./components/TodoLists";
-import { FilterValues, TasksStateType, TodoList } from "./types/types";
+import { FilterValues, TasksState, TodoList } from "./types/types";
 
 export const App: React.FC = () => {
   const todoListId1 = v1();
   const todoListId2 = v1();
 
-  const [tasksObj, setTasksObj] = useState<TasksStateType>({
+  const [tasksObj, setTasksObj] = useState<TasksState>({
     [todoListId1]: [
       {
         id: v1(),
