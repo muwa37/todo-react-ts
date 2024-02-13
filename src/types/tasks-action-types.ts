@@ -10,4 +10,22 @@ export type AddTaskAction = {
   todoListId: string;
 };
 
-export type TasksActions = RemoveTaskAction | AddTaskAction;
+export type ChangeTaskTitleAction = {
+  type: 'CHANGE-TASK-TITLE';
+  title: string;
+  taskId: string;
+  todoListId: string;
+};
+
+export type ChangeTaskStatusAction = {
+  type: 'CHANGE-TASK-STATUS';
+  status: boolean;
+  taskId: string;
+  todoListId: string;
+};
+
+export type TasksActions =
+  | RemoveTaskAction
+  | AddTaskAction
+  | ChangeTaskTitleAction
+  | ChangeTaskStatusAction;

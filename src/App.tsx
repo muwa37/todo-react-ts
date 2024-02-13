@@ -1,10 +1,10 @@
-import { Container, Grid } from "@mui/material";
-import React, { useState } from "react";
-import { v1 } from "uuid";
-import { AddItemForm } from "./components/AddItemForm";
-import { ButtonAppBar } from "./components/ButtonAppBar";
-import { TodoLists } from "./components/TodoLists";
-import { FilterValues, TasksState, TodoList } from "./types/types";
+import { Container, Grid } from '@mui/material';
+import React, { useState } from 'react';
+import { v1 } from 'uuid';
+import { AddItemForm } from './components/AddItemForm';
+import { ButtonAppBar } from './components/ButtonAppBar';
+import { TodoLists } from './components/TodoLists';
+import { FilterValues, TasksState, TodoList } from './types/types';
 
 export const App: React.FC = () => {
   const todoListId1 = v1();
@@ -14,37 +14,37 @@ export const App: React.FC = () => {
     [todoListId1]: [
       {
         id: v1(),
-        title: "todo 1st sample",
+        title: 'todo 1st sample',
         isDone: true,
       },
       {
         id: v1(),
-        title: "todo 2nd sample",
+        title: 'todo 2nd sample',
         isDone: false,
       },
       {
         id: v1(),
-        title: "todo 3rd sample",
+        title: 'todo 3rd sample',
         isDone: true,
       },
     ],
     [todoListId2]: [
       {
         id: v1(),
-        title: "todo 4st sample",
+        title: 'todo 4st sample',
         isDone: true,
       },
       {
         id: v1(),
-        title: "todo 5nd sample",
+        title: 'todo 5nd sample',
         isDone: false,
       },
     ],
   });
 
   const [todoLists, setTodoLists] = useState<TodoList[]>([
-    { id: todoListId1, title: "1st todo list title", filter: "active" },
-    { id: todoListId2, title: "2nd todo list title", filter: "completed" },
+    { id: todoListId1, title: '1st todo list title', filter: 'active' },
+    { id: todoListId2, title: '2nd todo list title', filter: 'completed' },
   ]);
 
   const changeTaskStatus = (
@@ -53,7 +53,7 @@ export const App: React.FC = () => {
     todoListId: string
   ) => {
     const tasks = tasksObj[todoListId];
-    let task = tasks.find((t) => t.id === id);
+    let task = tasks.find(t => t.id === id);
     if (task) {
       task.isDone = status;
       tasksObj[todoListId] = [...tasks];
@@ -74,7 +74,7 @@ export const App: React.FC = () => {
   };
 
   const changeFilter = (value: FilterValues, id: string) => {
-    const todoList = todoLists.find((tl) => tl.id === id);
+    const todoList = todoLists.find(tl => tl.id === id);
     if (todoList) {
       todoList.filter = value;
       setTodoLists([...todoLists]);
@@ -83,13 +83,13 @@ export const App: React.FC = () => {
 
   const removeTask = (id: string, todoListId: string) => {
     const tasks = tasksObj[todoListId];
-    const clearedTasks = tasks.filter((t) => t.id !== id);
+    const clearedTasks = tasks.filter(t => t.id !== id);
     tasksObj[todoListId] = clearedTasks;
     setTasksObj({ ...tasksObj });
   };
 
   const removeTodoList = (todoListId: string) => {
-    const clearedTodoLists = todoLists.filter((tl) => tl.id !== todoListId);
+    const clearedTodoLists = todoLists.filter(tl => tl.id !== todoListId);
     setTodoLists(clearedTodoLists);
     delete tasksObj[todoListId];
     setTasksObj({ ...tasksObj });
@@ -98,7 +98,7 @@ export const App: React.FC = () => {
   const addTodoList = (title: string) => {
     const todoList: TodoList = {
       id: v1(),
-      filter: "all",
+      filter: 'all',
       title: title,
     };
     setTodoLists([todoList, ...todoLists]);
@@ -107,7 +107,7 @@ export const App: React.FC = () => {
 
   const changeTaskTitle = (id: string, title: string, todoListId: string) => {
     const tasks = tasksObj[todoListId];
-    let task = tasks.find((t) => t.id === id);
+    let task = tasks.find(t => t.id === id);
     if (task) {
       task.title = title;
       tasksObj[todoListId] = [...tasks];
@@ -116,7 +116,7 @@ export const App: React.FC = () => {
   };
 
   const changeTodoListTitle = (todoListId: string, title: string) => {
-    const todoList = todoLists.find((tl) => tl.id === todoListId);
+    const todoList = todoLists.find(tl => tl.id === todoListId);
     if (todoList) {
       todoList.title = title;
       setTodoLists([...todoLists]);
@@ -124,10 +124,10 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="App">
+    <div className='App'>
       <ButtonAppBar />
       <Container>
-        <Grid container style={{ padding: "20px" }}>
+        <Grid container style={{ padding: '20px' }}>
           <AddItemForm addItem={addTodoList} />
         </Grid>
 
