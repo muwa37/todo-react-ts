@@ -8,6 +8,7 @@ export type RemoveTodoListAction = {
 export type AddTodoListAction = {
   type: 'ADD-TODOLIST';
   title: string;
+  todoListId: string;
 };
 
 export type ChangeTodoListTitleAction = {

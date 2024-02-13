@@ -36,6 +36,16 @@ export const tasksReducer = (
       return { ...state };
     }
 
+    case 'ADD-TODOLIST': {
+      state[action.todoListId] = [];
+      return { ...state };
+    }
+
+    case 'REMOVE-TODOLIST': {
+      delete state[action.todoListId];
+      return { ...state };
+    }
+
     default:
       throw new Error('not valid action type');
   }

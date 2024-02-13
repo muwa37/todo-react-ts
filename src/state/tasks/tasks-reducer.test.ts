@@ -1,5 +1,9 @@
 import { TasksState } from '../../types/types';
 import {
+  addTodoListAC,
+  removeTodoListAC,
+} from '../todo-lists/todolists-action-creators';
+import {
   addTaskAC,
   changeTaskStatusAC,
   changeTaskTitleAC,
@@ -77,7 +81,7 @@ test('correct task should be able to change its title', () => {
   expect(endState['todoListId2'][2].title).toBe('changed task title');
 });
 
-test('correct task should be able to change its status', () => {
+test('task should be able to change its status', () => {
   const startState: TasksState = {
     todoListId1: [
       { id: '1', title: '1st sample', isDone: false },
@@ -97,4 +101,54 @@ test('correct task should be able to change its status', () => {
 
   expect(endState['todoListId2'][2].isDone).toBeTruthy();
   expect(endState['todoListId1'][2].isDone).toBeFalsy();
+});
+
+test('should add new tasks array when todoList is added', () => {
+  const startState: TasksState = {
+    todoListId1: [
+      { id: '1', title: '1st sample', isDone: false },
+      { id: '2', title: '2nd sample', isDone: true },
+      { id: '3', title: '3rd sample', isDone: false },
+    ],
+    todoListId2: [
+      { id: '1', title: 'sample 1', isDone: false },
+      { id: '2', title: 'sample 2', isDone: true },
+      { id: '3', title: 'sample 3', isDone: false },
+    ],
+  };
+
+  const action = addTodoListAC('new todo list');
+  const endState = tasksReducer(startState, action);
+
+  const keys = Object.keys(endState);
+  const newKey = keys.find(k => k !== 'todoListId1' && k !== 'todoListId2');
+  if (!newKey) {
+    throw Error('new key should be added');
+  }
+
+  expect(keys.length).toBe(3);
+  expect(endState[newKey]).toStrictEqual([]);
+});
+
+test('should remove correct tasks array when todoList is removed', () => {
+  const startState: TasksState = {
+    todoListId1: [
+      { id: '1', title: '1st sample', isDone: false },
+      { id: '2', title: '2nd sample', isDone: true },
+      { id: '3', title: '3rd sample', isDone: false },
+    ],
+    todoListId2: [
+      { id: '1', title: 'sample 1', isDone: false },
+      { id: '2', title: 'sample 2', isDone: true },
+      { id: '3', title: 'sample 3', isDone: false },
+    ],
+  };
+
+  const action = removeTodoListAC('todoListId2');
+  const endState = tasksReducer(startState, action);
+
+  const keys = Object.keys(endState);
+
+  expect(keys.length).toBe(1);
+  expect(endState['todoListId2']).toBeUndefined();
 });

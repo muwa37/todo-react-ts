@@ -1,3 +1,8 @@
+import {
+  AddTodoListAction,
+  RemoveTodoListAction,
+} from './todolist-action-types';
+
 export type RemoveTaskAction = {
   type: 'REMOVE-TASK';
   todoListId: string;
@@ -28,4 +33,6 @@ export type TasksActions =
   | RemoveTaskAction
   | AddTaskAction
   | ChangeTaskTitleAction
-  | ChangeTaskStatusAction;
+  | ChangeTaskStatusAction
+  | AddTodoListAction
+  | RemoveTodoListAction;

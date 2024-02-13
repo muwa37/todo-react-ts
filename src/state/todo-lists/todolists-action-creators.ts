@@ -1,17 +1,18 @@
+import { v1 } from 'uuid';
 import {
   AddTodoListAction,
-  RemoveTodoListAction,
-  ChangeTodoListTitleAction,
   ChangeTodoListFilterAction,
-} from "../../types/todolist-action-types";
-import { FilterValues } from "../../types/types";
+  ChangeTodoListTitleAction,
+  RemoveTodoListAction,
+} from '../../types/todolist-action-types';
+import { FilterValues } from '../../types/types';
 
 export const removeTodoListAC = (todoListId: string): RemoveTodoListAction => {
-  return { type: "REMOVE-TODOLIST", todoListId: todoListId };
+  return { type: 'REMOVE-TODOLIST', todoListId };
 };
 
 export const addTodoListAC = (title: string): AddTodoListAction => {
-  return { type: "ADD-TODOLIST", title: title };
+  return { type: 'ADD-TODOLIST', title, todoListId: v1() };
 };
 
 export const changeTodoListTitleAC = (
@@ -19,9 +20,9 @@ export const changeTodoListTitleAC = (
   title: string
 ): ChangeTodoListTitleAction => {
   return {
-    type: "CHANGE-TODOLIST-TITLE",
-    todoListId: todoListId,
-    title: title,
+    type: 'CHANGE-TODOLIST-TITLE',
+    todoListId,
+    title,
   };
 };
 
@@ -30,8 +31,8 @@ export const changeTodoListFilterAC = (
   filter: FilterValues
 ): ChangeTodoListFilterAction => {
   return {
-    type: "CHANGE-TODOLIST-FILTER",
-    todoListId: todoListId,
-    filter: filter,
+    type: 'CHANGE-TODOLIST-FILTER',
+    todoListId,
+    filter,
   };
 };
