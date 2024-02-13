@@ -1,6 +1,6 @@
-import { Grid } from "@mui/material";
-import { TodoListsProps } from "../types/types";
-import { TodoList } from "./TodoList";
+import { Grid } from '@mui/material';
+import { TodoListsProps } from '../types/types';
+import { TodoList } from './TodoList';
 
 export const TodoLists: React.FC<TodoListsProps> = ({
   todoLists,
@@ -15,13 +15,13 @@ export const TodoLists: React.FC<TodoListsProps> = ({
 }: TodoListsProps) => {
   return (
     <Grid container spacing={5}>
-      {todoLists.map((tl) => {
+      {todoLists.map(tl => {
         let filteredTasks = tasks[tl.id];
-        if (tl.filter === "active") {
-          filteredTasks = filteredTasks.filter((t) => t.isDone === false);
+        if (tl.filter === 'active') {
+          filteredTasks = filteredTasks.filter(t => t.isDone === false);
         }
-        if (tl.filter === "completed") {
-          filteredTasks = filteredTasks.filter((t) => t.isDone === true);
+        if (tl.filter === 'completed') {
+          filteredTasks = filteredTasks.filter(t => t.isDone === true);
         }
         return (
           <TodoList

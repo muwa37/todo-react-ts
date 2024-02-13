@@ -1,5 +1,5 @@
-import { TodoFilterProps } from "../types/types";
-import { Button } from "@mui/material";
+import { Button } from '@mui/material';
+import { TodoFilterProps } from '../types/types';
 
 export const TodoFilter: React.FC<TodoFilterProps> = ({
   id,
@@ -8,34 +8,34 @@ export const TodoFilter: React.FC<TodoFilterProps> = ({
   filter,
 }: TodoFilterProps) => {
   const onAllClickHandler = () => {
-    changeFilter("all", id, todoListId);
+    changeFilter('all', id, todoListId);
   };
   const onActiveClickHandler = () => {
-    changeFilter("active", id, todoListId);
+    changeFilter('active', id, todoListId);
   };
   const onCompletedClickHandler = () => {
-    changeFilter("completed", id, todoListId);
+    changeFilter('completed', id, todoListId);
   };
 
   //TODO: style for active btn
   return (
     <div>
       <Button
-        variant={filter === "all" ? "contained" : "text"}
+        variant={filter === 'all' ? 'contained' : 'text'}
         onClick={onAllClickHandler}
       >
-        all{" "}
+        all{' '}
       </Button>
       <Button
-        variant={filter === "active" ? "contained" : "text"}
-        color={"primary"}
+        variant={filter === 'active' ? 'contained' : 'text'}
+        color={'primary'}
         onClick={onActiveClickHandler}
       >
         active
       </Button>
       <Button
-        variant={filter === "completed" ? "contained" : "text"}
-        color={"secondary"}
+        variant={filter === 'completed' ? 'contained' : 'text'}
+        color={'secondary'}
         onClick={onCompletedClickHandler}
       >
         completed

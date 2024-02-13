@@ -1,8 +1,8 @@
-import { ChangeEvent } from "react";
-import { TodoItemProps } from "../types/types";
-import { EditableSpan } from "./EditableSpan";
-import { Checkbox, IconButton } from "@mui/material";
-import { Delete } from "@mui/icons-material";
+import { Delete } from '@mui/icons-material';
+import { Checkbox, IconButton } from '@mui/material';
+import { ChangeEvent } from 'react';
+import { TodoItemProps } from '../types/types';
+import { EditableSpan } from './EditableSpan';
 
 export const TodoItem: React.FC<TodoItemProps> = ({
   id,
@@ -27,7 +27,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({
       <Checkbox
         onChange={onChangeHandler}
         checked={isDone}
-        color={"secondary"}
+        color={'secondary'}
       />
       <EditableSpan changeTitle={onTitleChangeHandler} title={title} />
       <IconButton onClick={onRemoveClickHandler}>

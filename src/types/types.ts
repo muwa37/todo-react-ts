@@ -1,5 +1,3 @@
-import { ChangeEvent, KeyboardEvent, FocusEvent } from "react";
-
 //TODO: Types refactoring
 
 export type Task = {
@@ -40,7 +38,7 @@ export type TodoFilterProps = {
   changeFilter: (value: FilterValues, id: string, todoListId: string) => void;
 };
 
-export type FilterValues = "all" | "completed" | "active";
+export type FilterValues = 'all' | 'completed' | 'active';
 
 export type AddItemFormProps = {
   addItem: (title: string) => void;

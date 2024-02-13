@@ -1,10 +1,10 @@
-import { TodoListProps } from "../types/types";
-import { TodoFilter } from "./TodoFilter";
-import { AddItemForm } from "./AddItemForm";
-import { TodoItem } from "./TodoItem";
-import { EditableSpan } from "./EditableSpan";
-import { Grid, IconButton, Paper } from "@mui/material";
-import { Delete } from "@mui/icons-material";
+import { Delete } from '@mui/icons-material';
+import { Grid, IconButton, Paper } from '@mui/material';
+import { TodoListProps } from '../types/types';
+import { AddItemForm } from './AddItemForm';
+import { EditableSpan } from './EditableSpan';
+import { TodoFilter } from './TodoFilter';
+import { TodoItem } from './TodoItem';
 
 export const TodoList: React.FC<TodoListProps> = ({
   id,
@@ -34,7 +34,7 @@ export const TodoList: React.FC<TodoListProps> = ({
 
   return (
     <Grid item>
-      <Paper style={{ padding: "10px" }}>
+      <Paper style={{ padding: '10px' }}>
         <h3>
           <EditableSpan
             title={title}
@@ -47,7 +47,7 @@ export const TodoList: React.FC<TodoListProps> = ({
 
         <AddItemForm addItem={addTaskHandler} />
         <div>
-          {tasks.map((task) => (
+          {tasks.map(task => (
             <TodoItem
               todoListId={todoListId}
               key={task.id}
