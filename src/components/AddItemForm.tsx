@@ -1,7 +1,7 @@
 import { ChangeEvent, KeyboardEvent, useState } from "react";
 import { AddItemFormProps } from "../types/types";
 import { IconButton, TextField } from "@mui/material";
-import { ControlPoint } from '@mui/icons-material';
+import { ControlPoint } from "@mui/icons-material";
 
 export const AddItemForm: React.FC<AddItemFormProps> = ({
   addItem,
@@ -46,8 +46,8 @@ export const AddItemForm: React.FC<AddItemFormProps> = ({
         error={!!titleError}
         helperText={titleError}
       />
-      <IconButton onClick={onClickHandler} color={'primary'}>
-        <ControlPoint/>
+      <IconButton onClick={onClickHandler} color={"primary"}>
+        <ControlPoint />
       </IconButton>
     </div>
   );

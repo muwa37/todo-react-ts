@@ -127,22 +127,21 @@ export const App: React.FC = () => {
     <div className="App">
       <ButtonAppBar />
       <Container>
-        <Grid container style={{padding: '20px'}}>
+        <Grid container style={{ padding: "20px" }}>
           <AddItemForm addItem={addTodoList} />
         </Grid>
-        
-          <TodoLists
-            tasks={tasksObj}
-            todoLists={todoLists}
-            changeTaskStatus={changeTaskStatus}
-            addTask={addTask}
-            changeFilter={changeFilter}
-            removeTask={removeTask}
-            removeTodoList={removeTodoList}
-            changeTaskTitle={changeTaskTitle}
-            changeTodoListTitle={changeTodoListTitle}
-          />
-        
+
+        <TodoLists
+          tasks={tasksObj}
+          todoLists={todoLists}
+          changeTaskStatus={changeTaskStatus}
+          addTask={addTask}
+          changeFilter={changeFilter}
+          removeTask={removeTask}
+          removeTodoList={removeTodoList}
+          changeTaskTitle={changeTaskTitle}
+          changeTodoListTitle={changeTodoListTitle}
+        />
       </Container>
     </div>
   );

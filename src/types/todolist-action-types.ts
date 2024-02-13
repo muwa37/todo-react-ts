@@ -1,4 +1,4 @@
-import { FilterValues } from './types';
+import { FilterValues } from "./types";
 
 export type RemoveTodoListAction = {
   type: "REMOVE-TODOLIST";
@@ -19,7 +19,7 @@ export type ChangeTodoListTitleAction = {
 export type ChangeTodoListFilterAction = {
   type: "CHANGE-TODOLIST-FILTER";
   todoListId: string;
-  filter: FilterValues
+  filter: FilterValues;
 };
 
 export type Actions =

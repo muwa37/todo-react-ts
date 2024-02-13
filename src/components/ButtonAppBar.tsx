@@ -1,4 +1,11 @@
-import { Box, Button, IconButton, Toolbar, Typography , AppBar} from "@mui/material";
+import {
+  Box,
+  Button,
+  IconButton,
+  Toolbar,
+  Typography,
+  AppBar,
+} from "@mui/material";
 import { Menu } from "@mui/icons-material";
 
 export const ButtonAppBar = () => {

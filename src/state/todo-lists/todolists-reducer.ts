@@ -1,6 +1,6 @@
 import { v1 } from "uuid";
 import { TodoList } from "../../types/types";
-import { Actions } from '../../types/action-types';
+import { Actions } from "../../types/todolist-action-types";
 
 export const todoListsReducer = (
   state: TodoList[],
@@ -26,15 +26,15 @@ export const todoListsReducer = (
       if (todoList) {
         todoList.title = action.title;
       }
-      return [...state]
+      return [...state];
     }
 
-    case 'CHANGE-TODOLIST-FILTER': {
-        const todoList = state.find((tl) => tl.id === action.todoListId);
+    case "CHANGE-TODOLIST-FILTER": {
+      const todoList = state.find((tl) => tl.id === action.todoListId);
       if (todoList) {
         todoList.filter = action.filter;
       }
-      return [...state]
+      return [...state];
     }
 
     default:

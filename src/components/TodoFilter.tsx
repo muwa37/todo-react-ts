@@ -5,7 +5,7 @@ export const TodoFilter: React.FC<TodoFilterProps> = ({
   id,
   todoListId,
   changeFilter,
-  filter
+  filter,
 }: TodoFilterProps) => {
   const onAllClickHandler = () => {
     changeFilter("all", id, todoListId);
@@ -20,9 +20,26 @@ export const TodoFilter: React.FC<TodoFilterProps> = ({
   //TODO: style for active btn
   return (
     <div>
-      <Button variant={filter === 'all' ? 'contained' : 'text'} onClick={onAllClickHandler}>all </Button>
-      <Button variant={filter === 'active' ? 'contained' : 'text'} color={'primary'} onClick={onActiveClickHandler}>active</Button>
-      <Button variant={filter === 'completed' ? 'contained' : 'text'} color={'secondary'} onClick={onCompletedClickHandler}>completed</Button>
+      <Button
+        variant={filter === "all" ? "contained" : "text"}
+        onClick={onAllClickHandler}
+      >
+        all{" "}
+      </Button>
+      <Button
+        variant={filter === "active" ? "contained" : "text"}
+        color={"primary"}
+        onClick={onActiveClickHandler}
+      >
+        active
+      </Button>
+      <Button
+        variant={filter === "completed" ? "contained" : "text"}
+        color={"secondary"}
+        onClick={onCompletedClickHandler}
+      >
+        completed
+      </Button>
     </div>
   );
 };
