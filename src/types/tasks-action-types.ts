@@ -1,17 +1,13 @@
-import { FilterValues } from "./types";
+export type RemoveTaskAction = {
+  type: 'REMOVE-TASK';
+  todoListId: string;
+  taskId: string;
+};
 
-export type Action1 = {
-  type: "1";
+export type AddTaskAction = {
+  type: 'ADD-TASK';
+  title: string;
   todoListId: string;
 };
 
-export type Action2 = {
-  type: "2";
-  title: string;
-};
-
-
-
-export type Actions =
-  | Action1
-  | Action2;
+export type TasksActions = RemoveTaskAction | AddTaskAction;

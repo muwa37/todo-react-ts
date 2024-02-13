@@ -1,9 +1,15 @@
-import { Action1, Action2 } from "../../types/tasks-action-types";
+import {
+  AddTaskAction,
+  RemoveTaskAction,
+} from '../../types/tasks-action-types';
 
-export const action1AC = (todoListId: string): Action1 => {
-  return { type: "1", todoListId: todoListId };
+export const removeTaskAC = (
+  taskId: string,
+  todoListId: string
+): RemoveTaskAction => {
+  return { type: 'REMOVE-TASK', taskId, todoListId };
 };
 
-export const action2AC = (title: string): Action2 => {
-  return { type: "2", title: title };
+export const addTaskAC = (title: string, todoListId: string): AddTaskAction => {
+  return { type: 'ADD-TASK', title, todoListId };
 };
