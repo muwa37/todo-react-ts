@@ -46,14 +46,14 @@ export type AddItemFormProps = {
 	addItem: (title: string) => void;
 };
 
-export type TodoListType = {
+export type TodoList = {
 	id: string;
 	title: string;
 	filter: FilterValues;
 };
 
 export type TodoListsProps = {
-	todoLists: TodoListType[];
+	todoLists: TodoList[];
 	tasks: TasksStateType;
 	removeTask: (id: string, todoListId: string) => void;
 	changeFilter: (value: FilterValues, id: string, todoListId: string) => void;

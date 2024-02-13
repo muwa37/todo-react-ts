@@ -4,7 +4,7 @@ import { v1 } from "uuid";
 import { AddItemForm } from "./components/AddItemForm";
 import { ButtonAppBar } from "./components/ButtonAppBar";
 import { TodoLists } from "./components/TodoLists";
-import { FilterValues, TasksStateType, TodoListType } from "./types/types";
+import { FilterValues, TasksStateType, TodoList } from "./types/types";
 
 export const App: React.FC = () => {
   const todoListId1 = v1();
@@ -42,7 +42,7 @@ export const App: React.FC = () => {
     ],
   });
 
-  const [todoLists, setTodoLists] = useState<TodoListType[]>([
+  const [todoLists, setTodoLists] = useState<TodoList[]>([
     { id: todoListId1, title: "1st todo list title", filter: "active" },
     { id: todoListId2, title: "2nd todo list title", filter: "completed" },
   ]);
@@ -96,7 +96,7 @@ export const App: React.FC = () => {
   };
 
   const addTodoList = (title: string) => {
-    const todoList: TodoListType = {
+    const todoList: TodoList = {
       id: v1(),
       filter: "all",
       title: title,
