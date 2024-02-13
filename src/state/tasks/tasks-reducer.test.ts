@@ -73,8 +73,7 @@ test('correct task should be able to change its title', () => {
 
   const endState = tasksReducer(startState, action);
 
-  expect(endState['todoListId1'].length).toBe(3);
-  expect(endState['todoListId2'].length).toBe(3);
+  expect(endState['todoListId1'][2].title).toBe('3rd sample');
   expect(endState['todoListId2'][2].title).toBe('changed task title');
 });
 
@@ -96,7 +95,6 @@ test('correct task should be able to change its status', () => {
 
   const endState = tasksReducer(startState, action);
 
-  expect(endState['todoListId1'].length).toBe(3);
-  expect(endState['todoListId2'].length).toBe(3);
   expect(endState['todoListId2'][2].isDone).toBeTruthy();
+  expect(endState['todoListId1'][2].isDone).toBeFalsy();
 });

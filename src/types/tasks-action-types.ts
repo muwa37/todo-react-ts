@@ -12,14 +12,14 @@ export type AddTaskAction = {
 
 export type ChangeTaskTitleAction = {
   type: 'CHANGE-TASK-TITLE';
-  title: string;
+  newTitle: string;
   taskId: string;
   todoListId: string;
 };
 
 export type ChangeTaskStatusAction = {
   type: 'CHANGE-TASK-STATUS';
-  status: boolean;
+  isDone: boolean;
   taskId: string;
   todoListId: string;
 };

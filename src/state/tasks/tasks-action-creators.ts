@@ -17,17 +17,17 @@ export const addTaskAC = (title: string, todoListId: string): AddTaskAction => {
 };
 
 export const changeTaskTitleAC = (
-  title: string,
+  newTitle: string,
   taskId: string,
   todoListId: string
 ): ChangeTaskTitleAction => {
-  return { type: 'CHANGE-TASK-TITLE', title, taskId, todoListId };
+  return { type: 'CHANGE-TASK-TITLE', newTitle, taskId, todoListId };
 };
 
 export const changeTaskStatusAC = (
-  status: boolean,
+  isDone: boolean,
   taskId: string,
   todoListId: string
 ): ChangeTaskStatusAction => {
-  return { type: 'CHANGE-TASK-STATUS', status, taskId, todoListId };
+  return { type: 'CHANGE-TASK-STATUS', isDone, taskId, todoListId };
 };

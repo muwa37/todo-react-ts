@@ -21,7 +21,7 @@ export const tasksReducer = (
     case 'CHANGE-TASK-TITLE': {
       const task = state[action.todoListId].find(t => t.id === action.taskId);
       if (task) {
-        task.title = action.title;
+        task.title = action.newTitle;
         state[action.todoListId] = [...state[action.todoListId]];
       }
       return { ...state };
@@ -30,7 +30,7 @@ export const tasksReducer = (
     case 'CHANGE-TASK-STATUS': {
       let task = state[action.todoListId].find(t => t.id === action.taskId);
       if (task) {
-        task.isDone = action.status;
+        task.isDone = action.isDone;
         state[action.todoListId] = [...state[action.todoListId]];
       }
       return { ...state };
