@@ -6,7 +6,7 @@ import { AddItemFormProps } from '../types/types';
 export const AddItemForm: React.FC<AddItemFormProps> = ({
   addItem,
 }: AddItemFormProps) => {
-  const [title, setNewTaskTitle] = useState('');
+  const [title, setNewTitle] = useState('');
   const [titleError, setTitleError] = useState<string | null>(null);
   const addValidatedItem = () => {
     if (title.trim() === '') {
@@ -14,24 +14,24 @@ export const AddItemForm: React.FC<AddItemFormProps> = ({
       return;
     }
     addItem(title);
-    setNewTaskTitle('');
+    setNewTitle('');
   };
 
   //TODO: separate handlers
 
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    setNewTaskTitle(e.currentTarget.value);
+    setNewTitle(e.currentTarget.value);
   };
   const onEnterPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
     setTitleError(null);
     if (e.key === 'Enter') {
       addValidatedItem();
-      setNewTaskTitle('');
+      setNewTitle('');
     }
   };
   const onClickHandler = () => {
     addValidatedItem();
-    setNewTaskTitle('');
+    setNewTitle('');
   };
 
   //TODO: debounce on change

@@ -25,7 +25,7 @@ export const TodoList: React.FC<TodoListProps> = ({
   };
 
   const addTaskHandler = (title: string) => {
-    addTask(title, id);
+    addTask(title, todoListId);
   };
 
   const changeTodoListTitleHandler = (title: string) => {
