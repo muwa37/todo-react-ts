@@ -9,17 +9,23 @@ export const tasksReducer = (
   switch (action.type) {
     case 'REMOVE-TASK': {
       state[action.todoListId] = state[action.todoListId].filter(
-        t => t.id !== action.taskId
+        t => t.taskId !== action.taskId
       );
       return { ...state };
     }
     case 'ADD-TASK': {
-      const newTask: Task = { id: v1(), title: action.title, isDone: false };
+      const newTask: Task = {
+        taskId: v1(),
+        title: action.title,
+        isDone: false,
+      };
       state[action.todoListId] = [...state[action.todoListId], newTask];
       return { ...state };
     }
     case 'CHANGE-TASK-TITLE': {
-      const task = state[action.todoListId].find(t => t.id === action.taskId);
+      const task = state[action.todoListId].find(
+        t => t.taskId === action.taskId
+      );
       if (task) {
         task.title = action.newTitle;
         state[action.todoListId] = [...state[action.todoListId]];
@@ -28,7 +34,7 @@ export const tasksReducer = (
     }
 
     case 'CHANGE-TASK-STATUS': {
-      let task = state[action.todoListId].find(t => t.id === action.taskId);
+      let task = state[action.todoListId].find(t => t.taskId === action.taskId);
       if (task) {
         task.isDone = action.isDone;
         state[action.todoListId] = [...state[action.todoListId]];

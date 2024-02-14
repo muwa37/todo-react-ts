@@ -27,29 +27,29 @@ export const App: React.FC = () => {
   const [tasks, dispatchToTasksReducer] = useReducer(tasksReducer, {
     [todoListId1]: [
       {
-        id: v1(),
+        taskId: v1(),
         title: 'todo 1st sample',
         isDone: true,
       },
       {
-        id: v1(),
+        taskId: v1(),
         title: 'todo 2nd sample',
         isDone: false,
       },
       {
-        id: v1(),
+        taskId: v1(),
         title: 'todo 3rd sample',
         isDone: true,
       },
     ],
     [todoListId2]: [
       {
-        id: v1(),
+        taskId: v1(),
         title: 'todo 4st sample',
         isDone: true,
       },
       {
-        id: v1(),
+        taskId: v1(),
         title: 'todo 5nd sample',
         isDone: false,
       },
@@ -78,11 +78,11 @@ export const App: React.FC = () => {
   };
 
   const changeTaskTitle = (
-    id: string,
     newTitle: string,
+    taskId: string,
     todoListId: string
   ) => {
-    dispatchToTasksReducer(changeTaskTitleAC(newTitle, id, todoListId));
+    dispatchToTasksReducer(changeTaskTitleAC(newTitle, taskId, todoListId));
   };
 
   const removeTodoList = (todoListId: string) => {
@@ -97,8 +97,8 @@ export const App: React.FC = () => {
     dispatchToTasksReducer(action);
   };
 
-  const changeTodoListFilter = (value: FilterValues, id: string) => {
-    dispatchToTodoListsReducer(changeTodoListFilterAC(id, value));
+  const changeTodoListFilter = (todoListId: string, filter: FilterValues) => {
+    dispatchToTodoListsReducer(changeTodoListFilterAC(todoListId, filter));
   };
 
   const changeTodoListTitle = (todoListId: string, title: string) => {

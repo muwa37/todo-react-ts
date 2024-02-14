@@ -7,7 +7,6 @@ import { TodoFilter } from './TodoFilter';
 import { TodoItem } from './TodoItem';
 
 export const TodoList: React.FC<TodoListProps> = ({
-  id,
   todoListId,
   title,
   tasks,
@@ -50,8 +49,8 @@ export const TodoList: React.FC<TodoListProps> = ({
           {tasks.map(task => (
             <TodoItem
               todoListId={todoListId}
-              key={task.id}
-              id={task.id}
+              key={task.taskId}
+              id={task.taskId}
               title={task.title}
               isDone={task.isDone}
               removeTask={removeTask}
@@ -62,7 +61,6 @@ export const TodoList: React.FC<TodoListProps> = ({
         </div>
         <TodoFilter
           todoListId={todoListId}
-          id={id}
           changeTodoListFilter={changeTodoListFilter}
           filter={filter}
         />

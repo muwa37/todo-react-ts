@@ -14,14 +14,14 @@ import { tasksReducer } from './tasks-reducer';
 test('correct task should be deleted from correct array', () => {
   const startState: TasksState = {
     todoListId1: [
-      { id: '1', title: '1st sample', isDone: false },
-      { id: '2', title: '2nd sample', isDone: false },
-      { id: '3', title: '3rd sample', isDone: false },
+      { taskId: '1', title: '1st sample', isDone: false },
+      { taskId: '2', title: '2nd sample', isDone: false },
+      { taskId: '3', title: '3rd sample', isDone: false },
     ],
     todoListId2: [
-      { id: '1', title: 'sample 1', isDone: false },
-      { id: '2', title: 'sample 2', isDone: false },
-      { id: '3', title: 'sample 3', isDone: false },
+      { taskId: '1', title: 'sample 1', isDone: false },
+      { taskId: '2', title: 'sample 2', isDone: false },
+      { taskId: '3', title: 'sample 3', isDone: false },
     ],
   };
 
@@ -31,20 +31,20 @@ test('correct task should be deleted from correct array', () => {
 
   expect(endState['todoListId1'].length).toBe(3);
   expect(endState['todoListId2'].length).toBe(2);
-  expect(endState['todoListId2'].every(t => t.id !== '2')).toBeTruthy();
+  expect(endState['todoListId2'].every(t => t.taskId !== '2')).toBeTruthy();
 });
 
 test('correct task should be added to correct array', () => {
   const startState: TasksState = {
     todoListId1: [
-      { id: '1', title: '1st sample', isDone: false },
-      { id: '2', title: '2nd sample', isDone: false },
-      { id: '3', title: '3rd sample', isDone: false },
+      { taskId: '1', title: '1st sample', isDone: false },
+      { taskId: '2', title: '2nd sample', isDone: false },
+      { taskId: '3', title: '3rd sample', isDone: false },
     ],
     todoListId2: [
-      { id: '1', title: 'sample 1', isDone: false },
-      { id: '2', title: 'sample 2', isDone: false },
-      { id: '3', title: 'sample 3', isDone: false },
+      { taskId: '1', title: 'sample 1', isDone: false },
+      { taskId: '2', title: 'sample 2', isDone: false },
+      { taskId: '3', title: 'sample 3', isDone: false },
     ],
   };
 
@@ -54,7 +54,7 @@ test('correct task should be added to correct array', () => {
 
   expect(endState['todoListId1'].length).toBe(3);
   expect(endState['todoListId2'].length).toBe(4);
-  expect(endState['todoListId2'][3].id).toBeDefined();
+  expect(endState['todoListId2'][3].taskId).toBeDefined();
   expect(endState['todoListId2'][3].title).toBe('new task sample');
   expect(endState['todoListId2'][3].isDone).toBeFalsy();
 });
@@ -62,14 +62,14 @@ test('correct task should be added to correct array', () => {
 test('correct task should be able to change its title', () => {
   const startState: TasksState = {
     todoListId1: [
-      { id: '1', title: '1st sample', isDone: false },
-      { id: '2', title: '2nd sample', isDone: false },
-      { id: '3', title: '3rd sample', isDone: false },
+      { taskId: '1', title: '1st sample', isDone: false },
+      { taskId: '2', title: '2nd sample', isDone: false },
+      { taskId: '3', title: '3rd sample', isDone: false },
     ],
     todoListId2: [
-      { id: '1', title: 'sample 1', isDone: false },
-      { id: '2', title: 'sample 2', isDone: false },
-      { id: '3', title: 'sample 3', isDone: false },
+      { taskId: '1', title: 'sample 1', isDone: false },
+      { taskId: '2', title: 'sample 2', isDone: false },
+      { taskId: '3', title: 'sample 3', isDone: false },
     ],
   };
 
@@ -84,14 +84,14 @@ test('correct task should be able to change its title', () => {
 test('task should be able to change its status', () => {
   const startState: TasksState = {
     todoListId1: [
-      { id: '1', title: '1st sample', isDone: false },
-      { id: '2', title: '2nd sample', isDone: false },
-      { id: '3', title: '3rd sample', isDone: false },
+      { taskId: '1', title: '1st sample', isDone: false },
+      { taskId: '2', title: '2nd sample', isDone: false },
+      { taskId: '3', title: '3rd sample', isDone: false },
     ],
     todoListId2: [
-      { id: '1', title: 'sample 1', isDone: false },
-      { id: '2', title: 'sample 2', isDone: false },
-      { id: '3', title: 'sample 3', isDone: false },
+      { taskId: '1', title: 'sample 1', isDone: false },
+      { taskId: '2', title: 'sample 2', isDone: false },
+      { taskId: '3', title: 'sample 3', isDone: false },
     ],
   };
 
@@ -106,14 +106,14 @@ test('task should be able to change its status', () => {
 test('should add new tasks array when todoList is added', () => {
   const startState: TasksState = {
     todoListId1: [
-      { id: '1', title: '1st sample', isDone: false },
-      { id: '2', title: '2nd sample', isDone: true },
-      { id: '3', title: '3rd sample', isDone: false },
+      { taskId: '1', title: '1st sample', isDone: false },
+      { taskId: '2', title: '2nd sample', isDone: true },
+      { taskId: '3', title: '3rd sample', isDone: false },
     ],
     todoListId2: [
-      { id: '1', title: 'sample 1', isDone: false },
-      { id: '2', title: 'sample 2', isDone: true },
-      { id: '3', title: 'sample 3', isDone: false },
+      { taskId: '1', title: 'sample 1', isDone: false },
+      { taskId: '2', title: 'sample 2', isDone: true },
+      { taskId: '3', title: 'sample 3', isDone: false },
     ],
   };
 
@@ -133,14 +133,14 @@ test('should add new tasks array when todoList is added', () => {
 test('should remove correct tasks array when todoList is removed', () => {
   const startState: TasksState = {
     todoListId1: [
-      { id: '1', title: '1st sample', isDone: false },
-      { id: '2', title: '2nd sample', isDone: true },
-      { id: '3', title: '3rd sample', isDone: false },
+      { taskId: '1', title: '1st sample', isDone: false },
+      { taskId: '2', title: '2nd sample', isDone: true },
+      { taskId: '3', title: '3rd sample', isDone: false },
     ],
     todoListId2: [
-      { id: '1', title: 'sample 1', isDone: false },
-      { id: '2', title: 'sample 2', isDone: true },
-      { id: '3', title: 'sample 3', isDone: false },
+      { taskId: '1', title: 'sample 1', isDone: false },
+      { taskId: '2', title: 'sample 2', isDone: true },
+      { taskId: '3', title: 'sample 3', isDone: false },
     ],
   };
 

@@ -27,7 +27,6 @@ export const TodoLists: React.FC<TodoListsProps> = ({
           <TodoList
             todoListId={tl.id}
             key={tl.id}
-            id={tl.id}
             title={tl.title}
             tasks={filteredTasks}
             removeTask={removeTask}
