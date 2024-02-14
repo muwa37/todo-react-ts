@@ -61,8 +61,8 @@ export const App: React.FC = () => {
     { id: todoListId2, title: '2nd todo list title', filter: 'completed' },
   ]);
 
-  const removeTask = (id: string, todoListId: string) => {
-    dispatchToTasksReducer(removeTaskAC(id, todoListId));
+  const removeTask = (taskId: string, todoListId: string) => {
+    dispatchToTasksReducer(removeTaskAC(taskId, todoListId));
   };
 
   const addTask = (title: string, todoListId: string) => {
@@ -70,15 +70,19 @@ export const App: React.FC = () => {
   };
 
   const changeTaskStatus = (
-    id: string,
-    status: boolean,
+    isDone: boolean,
+    taskId: string,
     todoListId: string
   ) => {
-    dispatchToTasksReducer(changeTaskStatusAC(status, id, todoListId));
+    dispatchToTasksReducer(changeTaskStatusAC(isDone, taskId, todoListId));
   };
 
-  const changeTaskTitle = (id: string, title: string, todoListId: string) => {
-    dispatchToTasksReducer(changeTaskTitleAC(title, id, todoListId));
+  const changeTaskTitle = (
+    id: string,
+    newTitle: string,
+    todoListId: string
+  ) => {
+    dispatchToTasksReducer(changeTaskTitleAC(newTitle, id, todoListId));
   };
 
   const removeTodoList = (todoListId: string) => {
@@ -93,7 +97,7 @@ export const App: React.FC = () => {
     dispatchToTasksReducer(action);
   };
 
-  const changeFilter = (value: FilterValues, id: string) => {
+  const changeTodoListFilter = (value: FilterValues, id: string) => {
     dispatchToTodoListsReducer(changeTodoListFilterAC(id, value));
   };
 
@@ -114,7 +118,7 @@ export const App: React.FC = () => {
           todoLists={todoLists}
           changeTaskStatus={changeTaskStatus}
           addTask={addTask}
-          changeFilter={changeFilter}
+          changeTodoListFilter={changeTodoListFilter}
           removeTask={removeTask}
           removeTodoList={removeTodoList}
           changeTaskTitle={changeTaskTitle}

@@ -12,7 +12,7 @@ export const TodoList: React.FC<TodoListProps> = ({
   title,
   tasks,
   removeTask,
-  changeFilter,
+  changeTodoListFilter,
   addTask,
   changeTaskStatus,
   removeTodoList,
@@ -63,7 +63,7 @@ export const TodoList: React.FC<TodoListProps> = ({
         <TodoFilter
           todoListId={todoListId}
           id={id}
-          changeFilter={changeFilter}
+          changeTodoListFilter={changeTodoListFilter}
           filter={filter}
         />
       </Paper>

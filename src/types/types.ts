@@ -13,9 +13,17 @@ export type TodoListProps = {
   tasks: Task[];
   filter: FilterValues;
   removeTask: (id: string, todoListId: string) => void;
-  changeFilter: (value: FilterValues, id: string, todoListId: string) => void;
+  changeTodoListFilter: (
+    value: FilterValues,
+    id: string,
+    todoListId: string
+  ) => void;
   addTask: (title: string, todoListId: string) => void;
-  changeTaskStatus: (id: string, status: boolean, todoListId: string) => void;
+  changeTaskStatus: (
+    isDone: boolean,
+    taskId: string,
+    todoListId: string
+  ) => void;
   removeTodoList: (todoListId: string) => void;
   changeTaskTitle: (id: string, title: string, todoListId: string) => void;
   changeTodoListTitle: (todoListId: string, title: string) => void;
@@ -27,7 +35,11 @@ export type TodoItemProps = {
   title: string;
   isDone: boolean;
   removeTask: (id: string, todoListId: string) => void;
-  changeTaskStatus: (id: string, status: boolean, todoListId: string) => void;
+  changeTaskStatus: (
+    isDone: boolean,
+    taskId: string,
+    todoListId: string
+  ) => void;
   changeTaskTitle: (id: string, title: string, todoListId: string) => void;
 };
 
@@ -35,7 +47,11 @@ export type TodoFilterProps = {
   id: string;
   todoListId: string;
   filter: FilterValues;
-  changeFilter: (value: FilterValues, id: string, todoListId: string) => void;
+  changeTodoListFilter: (
+    value: FilterValues,
+    id: string,
+    todoListId: string
+  ) => void;
 };
 
 export type FilterValues = 'all' | 'completed' | 'active';
@@ -54,9 +70,17 @@ export type TodoListsProps = {
   todoLists: TodoList[];
   tasks: TasksState;
   removeTask: (id: string, todoListId: string) => void;
-  changeFilter: (value: FilterValues, id: string, todoListId: string) => void;
+  changeTodoListFilter: (
+    value: FilterValues,
+    id: string,
+    todoListId: string
+  ) => void;
   addTask: (title: string, todoListId: string) => void;
-  changeTaskStatus: (id: string, status: boolean, todoListId: string) => void;
+  changeTaskStatus: (
+    isDone: boolean,
+    taskId: string,
+    todoListId: string
+  ) => void;
   removeTodoList: (todoListId: string) => void;
   changeTaskTitle: (id: string, title: string, todoListId: string) => void;
   changeTodoListTitle: (todoListId: string, title: string) => void;

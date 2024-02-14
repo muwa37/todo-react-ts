@@ -17,7 +17,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({
     removeTask(id, todoListId);
   };
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    changeTaskStatus(id, e.currentTarget.checked, todoListId);
+    changeTaskStatus(e.currentTarget.checked, id, todoListId);
   };
   const onTitleChangeHandler = (newTitle: string) => {
     changeTaskTitle(id, newTitle, todoListId);

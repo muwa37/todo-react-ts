@@ -6,7 +6,7 @@ export const TodoLists: React.FC<TodoListsProps> = ({
   todoLists,
   tasks,
   removeTask,
-  changeFilter,
+  changeTodoListFilter,
   changeTaskStatus,
   addTask,
   removeTodoList,
@@ -31,7 +31,7 @@ export const TodoLists: React.FC<TodoListsProps> = ({
             title={tl.title}
             tasks={filteredTasks}
             removeTask={removeTask}
-            changeFilter={changeFilter}
+            changeTodoListFilter={changeTodoListFilter}
             addTask={addTask}
             changeTaskStatus={changeTaskStatus}
             removeTodoList={removeTodoList}
