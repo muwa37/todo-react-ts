@@ -1,6 +1,11 @@
 import { Delete } from '@mui/icons-material';
 import { Grid, IconButton, Paper } from '@mui/material';
-import { TodoListProps } from '../types/types';
+import { useDispatch } from 'react-redux';
+import {
+  changeTodoListFilterAC,
+  removeTodoListAC,
+} from '../state/reducers/todo-lists-reducer/todolists-action-creators';
+import { FilterValues, TodoListProps } from '../types/types';
 import { AddItemForm } from './AddItemForm';
 import { EditableSpan } from './EditableSpan';
 import { TodoFilter } from './TodoFilter';
@@ -11,16 +16,20 @@ export const TodoList: React.FC<TodoListProps> = ({
   title,
   tasks,
   removeTask,
-  changeTodoListFilter,
   addTask,
   changeTaskStatus,
-  removeTodoList,
   changeTaskTitle,
   changeTodoListTitle,
   filter,
 }: TodoListProps) => {
+  const dispatch = useDispatch();
+
   const removeHandler = () => {
-    removeTodoList(todoListId);
+    dispatch(removeTodoListAC(todoListId));
+  };
+
+  const changeTodoListFilter = (todoListId: string, filter: FilterValues) => {
+    dispatch(changeTodoListFilterAC(todoListId, filter));
   };
 
   const addTaskHandler = (title: string) => {

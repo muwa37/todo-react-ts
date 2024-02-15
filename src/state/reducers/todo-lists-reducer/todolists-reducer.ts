@@ -1,19 +1,16 @@
 import { v1 } from 'uuid';
 import { TodoListActions } from '../../../types/todolist-action-types';
-import { TodoList } from '../../../types/types';
+import { TodoListType } from '../../../types/types';
 
 export const todoListId1 = v1();
 export const todoListId2 = v1();
 
-const initialState: TodoList[] = [
-  { id: todoListId1, title: '1st todo list title', filter: 'active' },
-  { id: todoListId2, title: '2nd todo list title', filter: 'completed' },
-];
+const initialState: TodoListType[] = [];
 
 export const todoListsReducer = (
-  state: TodoList[] = initialState,
+  state: TodoListType[] = initialState,
   action: TodoListActions
-): TodoList[] => {
+): TodoListType[] => {
   switch (action.type) {
     case 'REMOVE-TODOLIST': {
       return state.filter(tl => tl.id !== action.todoListId);

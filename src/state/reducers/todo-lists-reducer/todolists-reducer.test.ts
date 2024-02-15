@@ -1,5 +1,5 @@
 import { v1 } from 'uuid';
-import { FilterValues, TodoList } from '../../../types/types';
+import { FilterValues, TodoListType } from '../../../types/types';
 import {
   addTodoListAC,
   changeTodoListFilterAC,
@@ -12,7 +12,7 @@ test('correct todoList should be removed', () => {
   const todoListId1 = v1();
   const todoListId2 = v1();
 
-  const startState: TodoList[] = [
+  const startState: TodoListType[] = [
     { id: todoListId1, title: '1st todo list', filter: 'all' },
     { id: todoListId2, title: '2nd todo list', filter: 'all' },
   ];
@@ -28,7 +28,7 @@ test('correct todoList should be added', () => {
 
   const newTodoListTitle = 'new todo list';
 
-  const startState: TodoList[] = [
+  const startState: TodoListType[] = [
     { id: todoListId1, title: '1st todo list', filter: 'all' },
     { id: todoListId2, title: '2nd todo list', filter: 'all' },
   ];
@@ -49,7 +49,7 @@ test('correct todoList should be able to change its name', () => {
 
   const newTodoListTitle = 'new todo list';
 
-  const startState: TodoList[] = [
+  const startState: TodoListType[] = [
     { id: todoListId1, title: '1st todo list', filter: 'all' },
     { id: todoListId2, title: '2nd todo list', filter: 'all' },
   ];
@@ -69,7 +69,7 @@ test('correct filter of todoList should be changed', () => {
 
   const newFilter: FilterValues = 'completed';
 
-  const startState: TodoList[] = [
+  const startState: TodoListType[] = [
     { id: todoListId1, title: '1st todo list', filter: 'all' },
     { id: todoListId2, title: '2nd todo list', filter: 'all' },
   ];

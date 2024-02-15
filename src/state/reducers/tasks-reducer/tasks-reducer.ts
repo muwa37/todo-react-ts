@@ -1,42 +1,8 @@
 import { v1 } from 'uuid';
 import { TasksActions } from '../../../types/tasks-action-types';
 import { Task, TasksState } from '../../../types/types';
-import {
-  todoListId1,
-  todoListId2,
-} from '../todo-lists-reducer/todolists-reducer';
 
-const initialState: TasksState = {
-  [todoListId1]: [
-    {
-      id: v1(),
-      title: 'todo 1st sample',
-      isDone: true,
-    },
-    {
-      id: v1(),
-      title: 'todo 2nd sample',
-      isDone: false,
-    },
-    {
-      id: v1(),
-      title: 'todo 3rd sample',
-      isDone: true,
-    },
-  ],
-  [todoListId2]: [
-    {
-      id: v1(),
-      title: 'todo 4st sample',
-      isDone: true,
-    },
-    {
-      id: v1(),
-      title: 'todo 5nd sample',
-      isDone: false,
-    },
-  ],
-};
+const initialState: TasksState = {};
 
 export const tasksReducer = (
   state: TasksState = initialState,

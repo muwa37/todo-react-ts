@@ -23,7 +23,7 @@ export const AddItemForm: React.FC<AddItemFormProps> = ({
     setNewTitle(e.currentTarget.value);
   };
   const onEnterPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
-    setTitleError(null);
+    if (titleError !== null) setTitleError(null);
     if (e.key === 'Enter') {
       addValidatedItem();
       setNewTitle('');
