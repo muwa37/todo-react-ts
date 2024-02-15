@@ -1,8 +1,17 @@
-import { TodoListActions } from '../../types/todolist-action-types';
-import { TodoList } from '../../types/types';
+import { v1 } from 'uuid';
+import { TodoListActions } from '../../../types/todolist-action-types';
+import { TodoList } from '../../../types/types';
+
+export const todoListId1 = v1();
+export const todoListId2 = v1();
+
+const initialState: TodoList[] = [
+  { id: todoListId1, title: '1st todo list title', filter: 'active' },
+  { id: todoListId2, title: '2nd todo list title', filter: 'completed' },
+];
 
 export const todoListsReducer = (
-  state: TodoList[],
+  state: TodoList[] = initialState,
   action: TodoListActions
 ): TodoList[] => {
   switch (action.type) {
@@ -37,6 +46,6 @@ export const todoListsReducer = (
     }
 
     default:
-      throw new Error('not valid action type');
+      return state;
   }
 };

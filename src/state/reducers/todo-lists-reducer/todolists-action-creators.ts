@@ -4,8 +4,8 @@ import {
   ChangeTodoListFilterAction,
   ChangeTodoListTitleAction,
   RemoveTodoListAction,
-} from '../../types/todolist-action-types';
-import { FilterValues } from '../../types/types';
+} from '../../../types/todolist-action-types';
+import { FilterValues } from '../../../types/types';
 
 export const removeTodoListAC = (todoListId: string): RemoveTodoListAction => {
   return { type: 'REMOVE-TODOLIST', todoListId };

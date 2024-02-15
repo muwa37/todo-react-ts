@@ -1,7 +1,7 @@
 //TODO: Types refactoring
 
 export type Task = {
-  taskId: string;
+  id: string;
   title: string;
   isDone: boolean;
 };

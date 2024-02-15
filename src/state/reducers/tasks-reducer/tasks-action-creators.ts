@@ -3,7 +3,7 @@ import {
   ChangeTaskStatusAction,
   ChangeTaskTitleAction,
   RemoveTaskAction,
-} from '../../types/tasks-action-types';
+} from '../../../types/tasks-action-types';
 
 export const removeTaskAC = (
   taskId: string,

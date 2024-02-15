@@ -49,8 +49,8 @@ export const TodoList: React.FC<TodoListProps> = ({
           {tasks.map(task => (
             <TodoItem
               todoListId={todoListId}
-              key={task.taskId}
-              id={task.taskId}
+              key={task.id}
+              id={task.id}
               title={task.title}
               isDone={task.isDone}
               removeTask={removeTask}

@@ -1,1 +1,1 @@
-Todo with React, TypeScript and MUI
+Todo with React, Redux, TypeScript and MUI
