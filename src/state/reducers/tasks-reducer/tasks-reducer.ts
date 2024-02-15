@@ -2,6 +2,8 @@ import { v1 } from 'uuid';
 import { Task, TasksState } from '../../../types/common-types';
 import { TasksActions } from '../../../types/tasks-action-types';
 
+//FIXME: Rewrite with clear func rules
+
 const initialState: TasksState = {};
 
 export const tasksReducer = (

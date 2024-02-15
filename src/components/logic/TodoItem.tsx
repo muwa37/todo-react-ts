@@ -1,6 +1,6 @@
 import { Delete } from '@mui/icons-material';
 import { Checkbox, IconButton } from '@mui/material';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import {
   changeTaskStatusAC,
@@ -18,15 +18,21 @@ export const TodoItem: React.FC<TodoItemProps> = ({
 }: TodoItemProps) => {
   const dispatch = useDispatch();
 
-  const onRemoveClickHandler = () => {
+  const onRemoveClickHandler = useCallback(() => {
     dispatch(removeTaskAC(id, todoListId));
-  };
-  const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    dispatch(changeTaskStatusAC(e.currentTarget.checked, id, todoListId));
-  };
-  const onTitleChangeHandler = (newTitle: string) => {
-    dispatch(changeTaskTitleAC(newTitle, id, todoListId));
-  };
+  }, [dispatch, id, todoListId]);
+  const onChangeHandler = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      dispatch(changeTaskStatusAC(e.currentTarget.checked, id, todoListId));
+    },
+    [dispatch, id, todoListId]
+  );
+  const onTitleChangeHandler = useCallback(
+    (newTitle: string) => {
+      dispatch(changeTaskTitleAC(newTitle, id, todoListId));
+    },
+    [dispatch, id, todoListId]
+  );
 
   return (
     <div>

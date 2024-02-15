@@ -1,5 +1,6 @@
 import { Delete } from '@mui/icons-material';
 import { Grid, IconButton, Paper } from '@mui/material';
+import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addTaskAC } from '../../state/reducers/tasks-reducer/tasks-action-creators';
 import {
@@ -32,17 +33,23 @@ export const TodoList: React.FC<TodoListProps> = ({
       ? tasks.filter(t => t.isDone === true)
       : tasks;
 
-  const removeHandler = () => {
+  const removeHandler = useCallback(() => {
     dispatch(removeTodoListAC(todoListId));
-  };
+  }, [dispatch, todoListId]);
 
-  const addTaskHandler = (title: string) => {
-    dispatch(addTaskAC(title, todoListId));
-  };
+  const addTaskHandler = useCallback(
+    (title: string) => {
+      dispatch(addTaskAC(title, todoListId));
+    },
+    [dispatch, todoListId]
+  );
 
-  const changeTodoListTitleHandler = (title: string) => {
-    dispatch(changeTodoListTitleAC(todoListId, title));
-  };
+  const changeTodoListTitleHandler = useCallback(
+    (title: string) => {
+      dispatch(changeTodoListTitleAC(todoListId, title));
+    },
+    [dispatch, todoListId]
+  );
 
   return (
     <Grid item>

@@ -1,4 +1,5 @@
 import { Container, Grid } from '@mui/material';
+import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addTodoListAC } from '../../state/reducers/todo-lists-reducer/todolists-action-creators';
 import { TodoListType } from '../../types/common-types';
@@ -13,9 +14,12 @@ export const TodoLists: React.FC = () => {
     state => state.todoListsReducer
   );
 
-  const addTodoList = (title: string) => {
-    dispatch(addTodoListAC(title));
-  };
+  const addTodoList = useCallback(
+    (title: string) => {
+      dispatch(addTodoListAC(title));
+    },
+    [dispatch]
+  );
 
   return (
     <Container>

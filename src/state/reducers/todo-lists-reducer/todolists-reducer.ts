@@ -7,6 +7,8 @@ export const todoListId2 = v1();
 
 const initialState: TodoListType[] = [];
 
+//FIXME: Rewrite with clear func rules
+
 export const todoListsReducer = (
   state: TodoListType[] = initialState,
   action: TodoListActions

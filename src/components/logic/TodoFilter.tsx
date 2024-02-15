@@ -1,4 +1,5 @@
 import { Button } from '@mui/material';
+import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeTodoListFilterAC } from '../../state/reducers/todo-lists-reducer/todolists-action-creators';
 import { FilterValues } from '../../types/common-types';
@@ -10,19 +11,22 @@ export const TodoFilter: React.FC<TodoFilterProps> = ({
 }: TodoFilterProps) => {
   const dispatch = useDispatch();
 
-  const changeTodoListFilter = (todoListId: string, filter: FilterValues) => {
-    dispatch(changeTodoListFilterAC(todoListId, filter));
-  };
+  const changeTodoListFilter = useCallback(
+    (todoListId: string, filter: FilterValues) => {
+      dispatch(changeTodoListFilterAC(todoListId, filter));
+    },
+    []
+  );
 
-  const onAllClickHandler = () => {
+  const onAllClickHandler = useCallback(() => {
     changeTodoListFilter(todoListId, 'all');
-  };
-  const onActiveClickHandler = () => {
+  }, [todoListId, changeTodoListFilter]);
+  const onActiveClickHandler = useCallback(() => {
     changeTodoListFilter(todoListId, 'active');
-  };
-  const onCompletedClickHandler = () => {
+  }, [todoListId, changeTodoListFilter]);
+  const onCompletedClickHandler = useCallback(() => {
     changeTodoListFilter(todoListId, 'completed');
-  };
+  }, [todoListId, changeTodoListFilter]);
 
   //TODO: style for active btn
   return (
