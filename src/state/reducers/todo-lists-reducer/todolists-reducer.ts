@@ -1,6 +1,6 @@
 import { v1 } from 'uuid';
+import { TodoListType } from '../../../types/common-types';
 import { TodoListActions } from '../../../types/todolist-action-types';
-import { TodoListType } from '../../../types/types';
 
 export const todoListId1 = v1();
 export const todoListId2 = v1();

@@ -6,8 +6,9 @@ import {
   changeTodoListTitleAC,
   removeTodoListAC,
 } from '../state/reducers/todo-lists-reducer/todolists-action-creators';
+import { Task } from '../types/common-types';
+import { TodoListProps } from '../types/props-types';
 import { AppRootState } from '../types/store-types';
-import { Task, TodoListProps } from '../types/types';
 import { AddItemForm } from './AddItemForm';
 import { EditableSpan } from './EditableSpan';
 import { TodoFilter } from './TodoFilter';

@@ -1,4 +1,4 @@
-import { FilterValues } from './types';
+import { FilterValues } from './common-types';
 
 export type RemoveTodoListAction = {
   type: 'REMOVE-TODOLIST';

@@ -1,5 +1,5 @@
 import { v1 } from 'uuid';
-import { FilterValues, TodoListType } from '../../../types/types';
+import { FilterValues, TodoListType } from '../../../types/common-types';
 import {
   addTodoListAC,
   changeTodoListFilterAC,

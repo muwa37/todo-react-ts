@@ -7,7 +7,7 @@ import {
   changeTaskTitleAC,
   removeTaskAC,
 } from '../state/reducers/tasks-reducer/tasks-action-creators';
-import { TodoItemProps } from '../types/types';
+import { TodoItemProps } from '../types/props-types';
 import { EditableSpan } from './EditableSpan';
 
 export const TodoItem: React.FC<TodoItemProps> = ({

@@ -1,7 +1,8 @@
 import { Button } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { changeTodoListFilterAC } from '../state/reducers/todo-lists-reducer/todolists-action-creators';
-import { FilterValues, TodoFilterProps } from '../types/types';
+import { FilterValues } from '../types/common-types';
+import { TodoFilterProps } from '../types/props-types';
 
 export const TodoFilter: React.FC<TodoFilterProps> = ({
   todoListId,
