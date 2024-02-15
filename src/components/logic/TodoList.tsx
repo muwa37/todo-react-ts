@@ -1,16 +1,16 @@
 import { Delete } from '@mui/icons-material';
 import { Grid, IconButton, Paper } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTaskAC } from '../state/reducers/tasks-reducer/tasks-action-creators';
+import { addTaskAC } from '../../state/reducers/tasks-reducer/tasks-action-creators';
 import {
   changeTodoListTitleAC,
   removeTodoListAC,
-} from '../state/reducers/todo-lists-reducer/todolists-action-creators';
-import { Task } from '../types/common-types';
-import { TodoListProps } from '../types/props-types';
-import { AppRootState } from '../types/store-types';
-import { AddItemForm } from './AddItemForm';
-import { EditableSpan } from './EditableSpan';
+} from '../../state/reducers/todo-lists-reducer/todolists-action-creators';
+import { Task } from '../../types/common-types';
+import { TodoListProps } from '../../types/props-types';
+import { AppRootState } from '../../types/store-types';
+import { AddItemForm } from './../common/AddItemForm';
+import { EditableSpan } from './../common/EditableSpan';
 import { TodoFilter } from './TodoFilter';
 import { TodoItem } from './TodoItem';
 

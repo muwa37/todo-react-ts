@@ -1,9 +1,9 @@
 import { Container, Grid } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTodoListAC } from '../state/reducers/todo-lists-reducer/todolists-action-creators';
-import { TodoListType } from '../types/common-types';
-import { AppRootState } from '../types/store-types';
-import { AddItemForm } from './AddItemForm';
+import { addTodoListAC } from '../../state/reducers/todo-lists-reducer/todolists-action-creators';
+import { TodoListType } from '../../types/common-types';
+import { AppRootState } from '../../types/store-types';
+import { AddItemForm } from './../common/AddItemForm';
 import { TodoList } from './TodoList';
 
 export const TodoLists: React.FC = () => {

@@ -1,7 +1,7 @@
 import { ControlPoint } from '@mui/icons-material';
 import { IconButton, TextField } from '@mui/material';
 import { ChangeEvent, KeyboardEvent, useState } from 'react';
-import { AddItemFormProps } from '../types/props-types';
+import { AddItemFormProps } from '../../types/props-types';
 
 export const AddItemForm: React.FC<AddItemFormProps> = ({
   addItem,
