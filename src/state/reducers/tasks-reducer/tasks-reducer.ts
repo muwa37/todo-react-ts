@@ -2,8 +2,6 @@ import { v1 } from 'uuid';
 import { Task, TasksState } from '../../../types/common-types';
 import { TasksActions } from '../../../types/tasks-action-types';
 
-//FIXME: Rewrite with clear func rules
-
 const initialState: TasksState = {};
 
 export const tasksReducer = (
@@ -12,35 +10,37 @@ export const tasksReducer = (
 ): TasksState => {
   switch (action.type) {
     case 'REMOVE-TASK': {
-      state[action.todoListId] = state[action.todoListId].filter(
+      const todoListTasks = state[action.todoListId];
+      state[action.todoListId] = todoListTasks.filter(
         t => t.id !== action.taskId
       );
       return { ...state };
     }
+
     case 'ADD-TASK': {
       const newTask: Task = {
         id: v1(),
         title: action.title,
         isDone: false,
       };
-      state[action.todoListId] = [...state[action.todoListId], newTask];
+      const todoListTasks = state[action.todoListId];
+      state[action.todoListId] = [...todoListTasks, newTask];
       return { ...state };
     }
+
     case 'CHANGE-TASK-TITLE': {
-      const task = state[action.todoListId].find(t => t.id === action.taskId);
-      if (task) {
-        task.title = action.newTitle;
-        state[action.todoListId] = [...state[action.todoListId]];
-      }
+      const todoListTasks = state[action.todoListId];
+      state[action.todoListId] = todoListTasks.map(t =>
+        t.id === action.taskId ? { ...t, title: action.newTitle } : t
+      );
       return { ...state };
     }
 
     case 'CHANGE-TASK-STATUS': {
-      let task = state[action.todoListId].find(t => t.id === action.taskId);
-      if (task) {
-        task.isDone = action.isDone;
-        state[action.todoListId] = [...state[action.todoListId]];
-      }
+      const todoListTasks = state[action.todoListId];
+      state[action.todoListId] = todoListTasks.map(t =>
+        t.id === action.taskId ? { ...t, isDone: action.isDone } : t
+      );
       return { ...state };
     }
 

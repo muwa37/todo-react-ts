@@ -7,16 +7,15 @@ export const todoListId2 = v1();
 
 const initialState: TodoListType[] = [];
 
-//FIXME: Rewrite with clear func rules
-
 export const todoListsReducer = (
   state: TodoListType[] = initialState,
   action: TodoListActions
 ): TodoListType[] => {
   switch (action.type) {
     case 'REMOVE-TODOLIST': {
-      return state.filter(tl => tl.id !== action.todoListId);
+      return [...state].filter(tl => tl.id !== action.todoListId);
     }
+
     case 'ADD-TODOLIST': {
       return [
         {
@@ -29,7 +28,7 @@ export const todoListsReducer = (
     }
 
     case 'CHANGE-TODOLIST-TITLE': {
-      const todoList = state.find(tl => tl.id === action.todoListId);
+      const todoList = [...state].find(tl => tl.id === action.todoListId);
       if (todoList) {
         todoList.title = action.title;
       }
@@ -37,7 +36,7 @@ export const todoListsReducer = (
     }
 
     case 'CHANGE-TODOLIST-FILTER': {
-      const todoList = state.find(tl => tl.id === action.todoListId);
+      const todoList = [...state].find(tl => tl.id === action.todoListId);
       if (todoList) {
         todoList.filter = action.filter;
       }
