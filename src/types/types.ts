@@ -9,17 +9,7 @@ export type Task = {
 export type TodoListProps = {
   todoListId: string;
   title: string;
-  tasks: Task[];
   filter: FilterValues;
-  removeTask: (id: string, todoListId: string) => void;
-  addTask: (title: string, todoListId: string) => void;
-  changeTaskStatus: (
-    isDone: boolean,
-    taskId: string,
-    todoListId: string
-  ) => void;
-  changeTaskTitle: (id: string, title: string, todoListId: string) => void;
-  changeTodoListTitle: (todoListId: string, title: string) => void;
 };
 
 export type TodoItemProps = {
@@ -39,7 +29,6 @@ export type TodoItemProps = {
 export type TodoFilterProps = {
   todoListId: string;
   filter: FilterValues;
-  changeTodoListFilter: (todoListId: string, filter: FilterValues) => void;
 };
 
 export type FilterValues = 'all' | 'completed' | 'active';

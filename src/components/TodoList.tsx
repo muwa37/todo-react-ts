@@ -1,11 +1,18 @@
 import { Delete } from '@mui/icons-material';
 import { Grid, IconButton, Paper } from '@mui/material';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
-  changeTodoListFilterAC,
+  addTaskAC,
+  changeTaskStatusAC,
+  changeTaskTitleAC,
+  removeTaskAC,
+} from '../state/reducers/tasks-reducer/tasks-action-creators';
+import {
+  changeTodoListTitleAC,
   removeTodoListAC,
 } from '../state/reducers/todo-lists-reducer/todolists-action-creators';
-import { FilterValues, TodoListProps } from '../types/types';
+import { AppRootState } from '../types/store-types';
+import { Task, TodoListProps } from '../types/types';
 import { AddItemForm } from './AddItemForm';
 import { EditableSpan } from './EditableSpan';
 import { TodoFilter } from './TodoFilter';
@@ -14,30 +21,51 @@ import { TodoItem } from './TodoItem';
 export const TodoList: React.FC<TodoListProps> = ({
   todoListId,
   title,
-  tasks,
-  removeTask,
-  addTask,
-  changeTaskStatus,
-  changeTaskTitle,
-  changeTodoListTitle,
   filter,
 }: TodoListProps) => {
   const dispatch = useDispatch();
+
+  const tasks = useSelector<AppRootState, Task[]>(
+    state => state.tasksReducer[todoListId]
+  );
+
+  const filteredTasks =
+    filter === 'active'
+      ? tasks.filter(t => t.isDone === false)
+      : filter === 'completed'
+      ? tasks.filter(t => t.isDone === true)
+      : tasks;
+
+  const removeTask = (taskId: string, todoListId: string) => {
+    dispatch(removeTaskAC(taskId, todoListId));
+  };
+
+  const changeTaskStatus = (
+    isDone: boolean,
+    taskId: string,
+    todoListId: string
+  ) => {
+    dispatch(changeTaskStatusAC(isDone, taskId, todoListId));
+  };
+
+  const changeTaskTitle = (
+    newTitle: string,
+    taskId: string,
+    todoListId: string
+  ) => {
+    dispatch(changeTaskTitleAC(newTitle, taskId, todoListId));
+  };
 
   const removeHandler = () => {
     dispatch(removeTodoListAC(todoListId));
   };
 
-  const changeTodoListFilter = (todoListId: string, filter: FilterValues) => {
-    dispatch(changeTodoListFilterAC(todoListId, filter));
-  };
-
   const addTaskHandler = (title: string) => {
-    addTask(title, todoListId);
+    dispatch(addTaskAC(title, todoListId));
   };
 
   const changeTodoListTitleHandler = (title: string) => {
-    changeTodoListTitle(todoListId, title);
+    dispatch(changeTodoListTitleAC(todoListId, title));
   };
 
   return (
@@ -55,7 +83,7 @@ export const TodoList: React.FC<TodoListProps> = ({
 
         <AddItemForm addItem={addTaskHandler} />
         <div>
-          {tasks.map(task => (
+          {filteredTasks.map(task => (
             <TodoItem
               todoListId={todoListId}
               key={task.id}
@@ -68,11 +96,7 @@ export const TodoList: React.FC<TodoListProps> = ({
             />
           ))}
         </div>
-        <TodoFilter
-          todoListId={todoListId}
-          changeTodoListFilter={changeTodoListFilter}
-          filter={filter}
-        />
+        <TodoFilter todoListId={todoListId} filter={filter} />
       </Paper>
     </Grid>
   );

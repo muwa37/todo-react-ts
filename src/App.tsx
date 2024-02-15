@@ -1,12 +1,15 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { ButtonAppBar } from './components/ButtonAppBar';
 import { TodoLists } from './components/TodoLists';
 
+import { store } from './state/store/store';
+
 export const App: React.FC = () => {
   return (
-    <div className='App'>
+    <Provider store={store}>
       <ButtonAppBar />
       <TodoLists />
-    </div>
+    </Provider>
   );
 };
