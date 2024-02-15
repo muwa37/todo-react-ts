@@ -1,12 +1,7 @@
 import { Delete } from '@mui/icons-material';
 import { Grid, IconButton, Paper } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  addTaskAC,
-  changeTaskStatusAC,
-  changeTaskTitleAC,
-  removeTaskAC,
-} from '../state/reducers/tasks-reducer/tasks-action-creators';
+import { addTaskAC } from '../state/reducers/tasks-reducer/tasks-action-creators';
 import {
   changeTodoListTitleAC,
   removeTodoListAC,
@@ -35,26 +30,6 @@ export const TodoList: React.FC<TodoListProps> = ({
       : filter === 'completed'
       ? tasks.filter(t => t.isDone === true)
       : tasks;
-
-  const removeTask = (taskId: string, todoListId: string) => {
-    dispatch(removeTaskAC(taskId, todoListId));
-  };
-
-  const changeTaskStatus = (
-    isDone: boolean,
-    taskId: string,
-    todoListId: string
-  ) => {
-    dispatch(changeTaskStatusAC(isDone, taskId, todoListId));
-  };
-
-  const changeTaskTitle = (
-    newTitle: string,
-    taskId: string,
-    todoListId: string
-  ) => {
-    dispatch(changeTaskTitleAC(newTitle, taskId, todoListId));
-  };
 
   const removeHandler = () => {
     dispatch(removeTodoListAC(todoListId));
@@ -90,9 +65,6 @@ export const TodoList: React.FC<TodoListProps> = ({
               id={task.id}
               title={task.title}
               isDone={task.isDone}
-              removeTask={removeTask}
-              changeTaskStatus={changeTaskStatus}
-              changeTaskTitle={changeTaskTitle}
             />
           ))}
         </div>

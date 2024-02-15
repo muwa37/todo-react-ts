@@ -1,6 +1,12 @@
 import { Delete } from '@mui/icons-material';
 import { Checkbox, IconButton } from '@mui/material';
 import { ChangeEvent } from 'react';
+import { useDispatch } from 'react-redux';
+import {
+  changeTaskStatusAC,
+  changeTaskTitleAC,
+  removeTaskAC,
+} from '../state/reducers/tasks-reducer/tasks-action-creators';
 import { TodoItemProps } from '../types/types';
 import { EditableSpan } from './EditableSpan';
 
@@ -9,19 +15,19 @@ export const TodoItem: React.FC<TodoItemProps> = ({
   todoListId,
   title,
   isDone,
-  removeTask,
-  changeTaskStatus,
-  changeTaskTitle,
 }: TodoItemProps) => {
+  const dispatch = useDispatch();
+
   const onRemoveClickHandler = () => {
-    removeTask(id, todoListId);
+    dispatch(removeTaskAC(id, todoListId));
   };
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    changeTaskStatus(e.currentTarget.checked, id, todoListId);
+    dispatch(changeTaskStatusAC(e.currentTarget.checked, id, todoListId));
   };
   const onTitleChangeHandler = (newTitle: string) => {
-    changeTaskTitle(id, newTitle, todoListId);
+    dispatch(changeTaskTitleAC(newTitle, id, todoListId));
   };
+
   return (
     <div>
       <Checkbox

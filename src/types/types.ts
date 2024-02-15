@@ -17,13 +17,6 @@ export type TodoItemProps = {
   todoListId: string;
   title: string;
   isDone: boolean;
-  removeTask: (id: string, todoListId: string) => void;
-  changeTaskStatus: (
-    isDone: boolean,
-    taskId: string,
-    todoListId: string
-  ) => void;
-  changeTaskTitle: (id: string, title: string, todoListId: string) => void;
 };
 
 export type TodoFilterProps = {
