@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { ButtonAppBar } from './components/logic/ButtonAppBar';
 import { TodoLists } from './components/logic/TodoLists';
 
-import { store } from './state/store/store';
+import { store } from './state/store';
 
 export const App: React.FC = () => {
   return (
