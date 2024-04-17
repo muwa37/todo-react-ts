@@ -1,5 +1,9 @@
 import axios from 'axios';
-import { TodoListType } from '../types/todolists-api';
+import {
+  GetTasksResponse,
+  Response,
+  TodoListType,
+} from '../types/todolists-api';
 
 const settings = {
   withCredentials: true,
@@ -8,27 +12,35 @@ const settings = {
   },
 };
 
+const instance = axios.create({
+  baseURL: process.env.API_URL,
+  ...settings,
+});
+
 export const todoListsAPI = {
   getTodoLists() {
-    return axios.get<TodoListType[]>(
-      `${process.env.API_URL}/todo-lists`,
-      settings
-    );
+    return instance.get<TodoListType[]>(' /todo-lists');
   },
 
   createTodoList(title: string) {
-    return axios.post(`${process.env.API_URL}/todo-lists`, { title }, settings);
+    return instance.post<Response<{ item: TodoListType }>>('/todo-lists', {
+      title,
+    });
   },
 
   deleteTodoList(id: string) {
-    return axios.delete(`${process.env.API_URL}/todo-lists/${id}`, settings);
+    return instance.delete<Response>(`/todo-lists/${id}`);
   },
 
   updateTodoList(id: string, title: string) {
-    return axios.put(
-      `${process.env.API_URL}/todo-lists/${id}`,
-      { title },
-      settings
-    );
+    return instance.put<Response>(`/todo-lists/${id}`, { title });
+  },
+
+  getTasks(todoListId: string) {
+    return instance.get<GetTasksResponse>(`/todo-lists${todoListId}/tasks`);
+  },
+
+  deleteTask(todoListId: string, taskId: string) {
+    return instance.delete<Response>(`/todo-lists${todoListId}/tasks${taskId}`);
   },
 };
