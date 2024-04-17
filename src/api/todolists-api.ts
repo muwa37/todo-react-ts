@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { TodoListType } from '../types/todolists-api';
 
 const settings = {
   withCredentials: true,
@@ -9,7 +10,10 @@ const settings = {
 
 export const todoListsAPI = {
   getTodoLists() {
-    return axios.get(`${process.env.API_URL}/todo-lists`, settings);
+    return axios.get<TodoListType[]>(
+      `${process.env.API_URL}/todo-lists`,
+      settings
+    );
   },
 
   createTodoList(title: string) {

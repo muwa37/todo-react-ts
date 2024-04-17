@@ -1,6 +1,6 @@
 import { TextField } from '@mui/material';
 import React, { ChangeEvent, useState } from 'react';
-import { EditableSpanProps } from '../../types/props-types';
+import { EditableSpanProps } from '../../types/props';
 
 export const EditableSpan: React.FC<EditableSpanProps> = React.memo(
   ({ title, changeTitle }: EditableSpanProps) => {

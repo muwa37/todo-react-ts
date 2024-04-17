@@ -1,11 +1,11 @@
 import { v1 } from 'uuid';
-import { FilterValues } from '../../../types/common-types';
+import { FilterValues } from '../../../types/common';
 import {
   AddTodoListAction,
   ChangeTodoListFilterAction,
   ChangeTodoListTitleAction,
   RemoveTodoListAction,
-} from '../../../types/todolist-action-types';
+} from '../../../types/todolist-action';
 
 export const removeTodoListAC = (todoListId: string): RemoveTodoListAction => {
   return { type: 'REMOVE-TODOLIST', todoListId };

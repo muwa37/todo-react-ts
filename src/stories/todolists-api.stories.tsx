@@ -1,19 +1,13 @@
 import { useEffect, useState } from 'react';
 import { todoListsAPI } from '../api/todolists-api';
+import { TodoListType } from '../types/todolists-api';
 
 export default {
   title: 'API',
 };
 
-const settings = {
-  withCredentials: true,
-  headers: {
-    'API-KEY': process.env.API_KEY,
-  },
-};
-
 export const GetTodoLists = () => {
-  const [state, setState] = useState(null);
+  const [state, setState] = useState<TodoListType[] | null>(null);
   useEffect(() => {
     todoListsAPI.getTodoLists().then(res => {
       setState(res.data);

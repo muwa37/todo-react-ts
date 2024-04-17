@@ -1,4 +1,4 @@
-import { TasksState } from '../../../types/common-types';
+import { TasksState } from '../../../types/common';
 import {
   addTodoListAC,
   removeTodoListAC,

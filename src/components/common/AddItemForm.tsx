@@ -1,7 +1,7 @@
 import { ControlPoint } from '@mui/icons-material';
 import { IconButton, TextField } from '@mui/material';
 import React, { ChangeEvent, KeyboardEvent, useState } from 'react';
-import { AddItemFormProps } from '../../types/props-types';
+import { AddItemFormProps } from '../../types/props';
 
 export const AddItemForm: React.FC<AddItemFormProps> = React.memo(
   ({ addItem }: AddItemFormProps) => {

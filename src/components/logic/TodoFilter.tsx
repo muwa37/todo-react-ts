@@ -2,8 +2,8 @@ import { Button } from '@mui/material';
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeTodoListFilterAC } from '../../state/reducers/todo-lists-reducer/todolists-action-creators';
-import { FilterValues } from '../../types/common-types';
-import { TodoFilterProps } from '../../types/props-types';
+import { FilterValues } from '../../types/common';
+import { TodoFilterProps } from '../../types/props';
 
 export const TodoFilter: React.FC<TodoFilterProps> = ({
   todoListId,

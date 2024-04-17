@@ -2,8 +2,8 @@ import { Container, Grid } from '@mui/material';
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addTodoListAC } from '../../state/reducers/todo-lists-reducer/todolists-action-creators';
-import { TodoListType } from '../../types/common-types';
-import { AppRootState } from '../../types/store-types';
+import { TodoListType } from '../../types/common';
+import { AppRootState } from '../../types/store';
 import { AddItemForm } from './../common/AddItemForm';
 import { TodoList } from './TodoList';
 

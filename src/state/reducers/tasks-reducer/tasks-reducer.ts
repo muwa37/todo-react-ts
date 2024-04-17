@@ -1,6 +1,6 @@
 import { v1 } from 'uuid';
-import { Task, TasksState } from '../../../types/common-types';
-import { TasksActions } from '../../../types/tasks-action-types';
+import { Task, TasksState } from '../../../types/common';
+import { TasksActions } from '../../../types/tasks-action';
 
 const initialState: TasksState = {};
 

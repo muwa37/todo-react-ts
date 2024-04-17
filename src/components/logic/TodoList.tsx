@@ -7,9 +7,9 @@ import {
   changeTodoListTitleAC,
   removeTodoListAC,
 } from '../../state/reducers/todo-lists-reducer/todolists-action-creators';
-import { Task } from '../../types/common-types';
-import { TodoListProps } from '../../types/props-types';
-import { AppRootState } from '../../types/store-types';
+import { Task } from '../../types/common';
+import { TodoListProps } from '../../types/props';
+import { AppRootState } from '../../types/store';
 import { AddItemForm } from './../common/AddItemForm';
 import { EditableSpan } from './../common/EditableSpan';
 import { TodoFilter } from './TodoFilter';
@@ -30,8 +30,8 @@ export const TodoList: React.FC<TodoListProps> = ({
     filter === 'active'
       ? tasks.filter(t => t.isDone === false)
       : filter === 'completed'
-      ? tasks.filter(t => t.isDone === true)
-      : tasks;
+        ? tasks.filter(t => t.isDone === true)
+        : tasks;
 
   const removeHandler = useCallback(() => {
     dispatch(removeTodoListAC(todoListId));
